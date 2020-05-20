@@ -1,15 +1,11 @@
+import { Device } from '../models/device.model';
 
 
 export interface State {
-  isLoading?: boolean;
-  error?: any;
-  total?: number;
-  selectedDeviceId?: string | number;
+
+  deviceList: Device[]
 }
 
 export const initialState: State = {
-  isLoading: false,
-  error: null,
-  selectedDeviceId: null,
-  total: 0
+  deviceList: []
 };

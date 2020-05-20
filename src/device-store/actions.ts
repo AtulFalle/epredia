@@ -1,20 +1,25 @@
-
 import { createAction, props, Action } from '@ngrx/store';
+import { Device } from '../models/device.model';
+
 export enum DeviceActionType {
-  Load = '[Device Component] Load',
-  SearchDevices = '[Device Component] Search Device',
+  getDevices = '[Device Component] Load',
+  getDevicesSuccess = '[Device Success] Load Successfully',
+  getDevicesError = '[Device Error] Load Failed',
+
+}
+export class GetDevices implements Action {
+  public readonly type = DeviceActionType.getDevices;
 
 }
 
-export const load = createAction(DeviceActionType.Load);
-export const searchDevices = createAction(
-  DeviceActionType.SearchDevices,
-  props<{ query: any }>()
-);
-
-export class AddToFav implements Action {
-  public readonly type: DeviceActionType.SearchDevices;
-  constructor(public payload: any ) {}
-
+export class GetDevicesSuccess implements Action {
+  public readonly type = DeviceActionType.getDevicesSuccess;
+  constructor(public payload: Device[]) { }
 
 }
+export class GetDevicesError implements Action {
+  public readonly type = DeviceActionType.getDevicesError;
+
+}
+
+export type DeviceAction = GetDevices | GetDevicesSuccess | GetDevicesError;

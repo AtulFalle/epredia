@@ -1,3 +1,5 @@
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,6 +8,7 @@ import { AppComponent } from './app.component';
 import { DeviceStoreModule } from '../device-store';
 import { MicroContainerComponent } from './componants/micro-container/micro-container.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot(),
     DeviceStoreModule,
     NgbModule
 

@@ -1,58 +1,25 @@
 
-  import { get } from 'lodash';
-  import { of } from 'rxjs';
-  import { Injectable } from '@angular/core';
-  import { Actions, createEffect, ofType } from '@ngrx/effects';
-  import { catchError, concatMap, map, switchMap, mergeMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Actions, ofType, Effect } from '@ngrx/effects';
+import { map, switchMap } from 'rxjs/operators';
+import { DeviceService } from '../app/shared/service/device.service';
+import { DeviceActionType, GetDevices, GetDevicesSuccess } from './actions';
 
-  import * as deviceActions from './actions';
 
-
-  @Injectable()
-  export class DeviceStoreEffects {
+@Injectable()
+export class DeviceStoreEffects {
   constructor(
     private actions$: Actions,
-
+    private deviceService: DeviceService
   ) { }
 
-  loadRequestEffect$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(deviceActions.load),
-      // concatMap(() =>
-      //   // this.dataService.searchDevices()
-      //   //   .pipe(
-      //   //     map(items =>
-      //   //       deviceActions.loadSuccess({
-      //   //         devices: items.data.items.map(item => this.deviceAdapter.adapt(item))
-      //   //       })
-      //   //     ),
-      //   //     catchError(error => of(deviceActions.actionFailure({ error })))
-      //   //   )
-      // )
-    )
+  @Effect()
+  getDevice$ = this.actions$.pipe(
+    ofType<GetDevices>(DeviceActionType.getDevices),
+    switchMap(() => this.deviceService.getDevices()),
+    switchMap((devices) => {
+      return of(new GetDevicesSuccess(devices));
+    })
   );
-
-  searchDevicesEffect$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(deviceActions.searchDevices),
-      // switchMap((action: any) => {
-      //   delete action.type;
-      //   return this.dataService.searchDevices(action)
-      //     .pipe(
-      //       mergeMap(items => {
-      //         return [
-      //           deviceActions.loadSuccess({
-      //             devices: items ? items.data.items.map(item => this.deviceAdapter.adapt(item)) : []
-      //         }),
-      //         deviceActions.updateTotal({
-      //           total: items ? items.data.pagination.total : 0
-      //         })
-      //       ];
-      //     }),
-      //       catchError(error => of(deviceActions.actionFailure({ error })))
-      //     );
-      // })
-    // );
-    )
-  });
-  }
+}
