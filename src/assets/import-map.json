@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "dashboard": "http://localhost:4201/main.js"
+  }
+}
