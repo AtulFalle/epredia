@@ -6,12 +6,17 @@ import { GetDevices } from 'src/device-store/actions';
 import { Device } from 'src/models/device.model';
 import { Observable, Subscription } from 'rxjs';
 
+import {faSortAmountUp, faSortAlphaUpAlt} from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-instruments',
   templateUrl: './instruments.component.html',
   styleUrls: ['./instruments.component.scss']
 })
 export class InstrumentsComponent implements OnInit, OnDestroy {
+
+  filterIcon = faSortAmountUp;
+  sorticon = faSortAlphaUpAlt;
 
   filterApllied = false;
   activeFilter = [];
