@@ -40,6 +40,11 @@ export class InstrumentsComponent implements OnInit, OnDestroy {
     } else {
       this.activeFilter.push(type);
     }
+    if(this.activeFilter.length < 1){
+      this.filterApllied = false;
+      this.deviceList = [...this.allList];
+      return;
+    }
     this.filterApllied = true;
     this.deviceList = [...this.allList];
 

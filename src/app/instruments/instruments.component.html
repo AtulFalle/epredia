@@ -92,13 +92,13 @@
 
       <div class="device-actions">
 
-        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+        <div ngbDropdown placement="bottom-right" class="d-inline-block" #filterDrop="ngbDropdown">
           <i id="dropdownBasic1" class="material-icons" ngbDropdownToggle>sort</i>
           <span>Filter</span>
           <!-- <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle></button> -->
           <div ngbDropdownMenu class="dropdown-menu filter" aria-labelledby="dropdownBasic1" placement="bottom-left">
-            <div ngbDropdownItem class="">
-              <div class="container">
+            <div class="">
+              <div class="container py-4">
                 <div class="col-12">
                   <p>Filter By -</p>
                   <p>Instrument Type</p>
@@ -112,9 +112,9 @@
                     <button type="button" class="btn btn-outline-secondary filter-badge m-3"
                       [ngClass]="{'isActive': checkFilter('lorem2')}" (click)="applyFilter('lorem2')">lorem2</button>
                   </div>
-                  <div class="row">
-                    <button type="button" class="btn btn-primary">Apply</button>
-                    <button type="button" class="btn btn-danger" (click)="filterRemoved()">Clear filter</button>
+                  <div class="row justify-content-end">
+                    <button type="button" class="btn btn-secondary mr-2" (click)="filterRemoved()">Clear filter</button>
+                    <button type="button" class="btn btn-danger" (click)="filterDrop.close()">Apply</button>
                   </div>
                 </div>
               </div>
