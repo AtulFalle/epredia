@@ -3,7 +3,43 @@
 .container-fluid{
   background: lightgrey;
 }
-.dropdown-menu{
-  left: -10rem !important;
+.dropdown-menu.filter{
+  // left: -10rem !important;
   width: 50rem !important;
+}
+
+.isActive{
+  background: grey !important;
+  color: white !important;
+}
+.badge{
+  width: 5rem;
+}
+.device-card {
+  height: 150px;
+}
+
+.devices-header {
+  display: flex;
+}
+
+.devices-header h2 {
+  padding-right: 10px;
+}
+
+.devices-header hr {
+  width: 100%;
+}
+
+.devices-filter i {
+  rotate: 180;
+}
+
+.devices-sort i {
+  rotate: 90;
+}
+
+.device-actions {
+  text-align: center;
+  font-size: small;
 }

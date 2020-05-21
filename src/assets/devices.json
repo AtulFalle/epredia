@@ -1,0 +1,60 @@
+{"deviceInfo":{"id":"atul","devices":
+  [
+      {
+        "_id": "revos-asia-device555",
+        "serialNumber": "RS0000000555",
+        "deviceName": "TissueProcessor A",
+        "softwareVersion": "-----",
+        "firmwareVersion": "NIOS 1.1.1-FPGA",
+        "status": "Unavailable",
+        "type":"revos"
+      },
+      {
+        "_id": "revos-asia-device666",
+        "serialNumber": "RS0000000666",
+        "deviceName": "TissueProcessor B",
+        "softwareVersion": "-----",
+        "firmwareVersion": "NIOS 1.1.1-FPGA",
+        "status": "Unavailable",
+        "type":"revos"
+      },
+      {
+        "_id": "revos-asia-device777",
+        "serialNumber": "RS0000000777",
+        "deviceName": "TissueProcessor C",
+        "softwareVersion": "-----",
+        "firmwareVersion": "NIOS 1.1.1-FPGA",
+        "status": "Available",
+        "type":"revos"
+      },
+      {
+        "_id": "revos-asia-device888",
+        "serialNumber": "RS0000000888",
+        "deviceName": "TissueProcessor D",
+        "softwareVersion": "-----",
+        "firmwareVersion": "NIOS 1.1.1-FPGA",
+        "status": "Available",
+        "type":"revos"
+      },
+      {
+        "_id": "rcom-asia-device777",
+        "serialNumber": "RS0000000777",
+        "deviceName": "Rcom C",
+        "softwareVersion": "-----",
+        "firmwareVersion": "NIOS 1.1.1-FPGA",
+        "status": "Available",
+        "type":"rcom"
+      },
+      {
+        "_id": "rcom-asia-device888",
+        "serialNumber": "RS0000000888",
+        "deviceName": "Rcom D",
+        "softwareVersion": "-----",
+        "firmwareVersion": "NIOS 1.1.1-FPGA",
+        "status": "Available",
+        "type":"rcom"
+      }
+
+    ]
+  }
+}

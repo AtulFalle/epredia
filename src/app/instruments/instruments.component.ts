@@ -1,10 +1,10 @@
+import { deviceList } from './../../device-store/selectors';
 import { State } from './../../device-store/state';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { GetDevices } from 'src/device-store/actions';
 import { Device } from 'src/models/device.model';
 import { Observable, Subscription } from 'rxjs';
-import { deviceList } from 'src/device-store/selectors';
 
 @Component({
   selector: 'app-instruments',
@@ -13,30 +13,12 @@ import { deviceList } from 'src/device-store/selectors';
 })
 export class InstrumentsComponent implements OnInit, OnDestroy {
 
-  allList: Device[] = [
-    {
-      _id: "rcom-asia-device555",
-      serialNumber: "Rcom000000555",
-      deviceName: "rCom - TissueProcessor A",
-      softwareVersion: "-----",
-      firmwareVersion: "NIOS 1.1.1-FPGA",
-      status: "Available",
-      type: 'rcom'
-    },
-    {
-      _id: "rcom-asia-device56",
-      serialNumber: "Rcom00000056",
-      deviceName: "rCom - TissueProcessor B",
-      softwareVersion: "-----",
-      firmwareVersion: "NIOS 1.1.1-FPGA",
-      status: "Available",
-      type: 'rcom'
-    }
-  ];
-  favList: Device[] = [];
-  deviceList: Device[] = [
+ filterApllied = false;
+ activeFilter = [];
 
-  ];
+  allList: Device[] = [];
+  favList: Device[] = [];
+  deviceList: Device[] = [];
   subscription$: Subscription;
   constructor(private store: Store<State>) { }
 
@@ -45,18 +27,54 @@ export class InstrumentsComponent implements OnInit, OnDestroy {
     this.store.dispatch(new GetDevices());
     this.subscription$ = this.store.select(deviceList).subscribe((res: Device[]) => {
 
-      for (const i of res) {
-        const temp = {...i};
-        temp.type = 'revos';
-        this.deviceList.push(temp);
-      }
-      this.allList = [...this.allList, ...this.deviceList];
+
+     this.allList = res;
+     this.deviceList = res;
     });
 
   }
   applyFilter(type: string) {
 
-    this.allList = this.allList.filter((device) => device.type == type)
+    if( this.activeFilter.includes(type)) {
+      this.activeFilter.splice(this.activeFilter.indexOf(type), 1);
+    } else {
+      this.activeFilter.push(type);
+    }
+    this.filterApllied = true;
+    this.deviceList = [...this.allList];
+
+    this.deviceList = this.deviceList.filter((device) => {
+      return this.activeFilter.includes(device.type);
+    })
+  }
+  filterRemoved( ) {
+    this.filterApllied = false;
+    this.deviceList = [...this.allList];
+    this.activeFilter = [];
+
+  }
+
+  checkFilter(filter: string) {
+return this.activeFilter.includes(filter);
+  }
+  sortDevices(val: number) {
+
+    if( val == 0) {
+      this.deviceList = [...this.deviceList].sort((a, b) => a.deviceName !== b.deviceName ? a.deviceName < b.deviceName ? -1 : 1 : 0)
+    } else {
+      this.deviceList = [...this.deviceList].sort((a, b) => a.deviceName !== b.deviceName ? a.deviceName < b.deviceName ? 1 : -1 : 0)
+    }
+  }
+  addToFavorite(item: Device) {
+
+    this.deviceList = this.deviceList.filter(  device => device._id != item._id);
+    this.favList = [...this.favList, item];
+
+  }
+  removeFromFavorite(item: Device) {
+    this.favList = this.favList.filter(  device => device._id != item._id);
+    this.deviceList = [...this.deviceList, item];
+
   }
 
   /**

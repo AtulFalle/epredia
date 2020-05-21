@@ -16,7 +16,8 @@ export class DeviceService {
 
   getDevices(): Observable<Device[]> {
 
-    const url = this.baseUrl + '/getUserDeviceDetails';
+    // const url = this.baseUrl + '/getUserDeviceDetails';
+    const url = '/assets/devices.json';
     return this.http.get(url, { headers: new HttpHeaders().set('x-ms-client-principal-id', this.userName).set('Access-Control-Allow-Origin', '*') }).pipe(
       map((res: any) => res.deviceInfo.devices)
     );

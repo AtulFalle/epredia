@@ -1,5 +1,5 @@
-<div class="card">
-  <div class="container">
+<!-- <div class="card">
+  <div class="container" (click)="addTofav()">
     <div class="row">
       <div class="col-4">
         <div class="img">
@@ -20,6 +20,49 @@
         <p>{{device.serialNumber}}
         <p>{{device.firmwareVersion}}</p>
       </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<div class="card-container">
+  <div class="card-actions">
+    <div class="card-image">
+      <fa-icon [icon]="faStar" size="sm" (click)="addTofav()"></fa-icon>
+    </div>
+    <div>
+      <fa-icon [icon]="faEllipsisV" size="sm"></fa-icon>
+    </div>
+  </div>
+  <div class="card-content-wrapper">
+    <div class="card-media">
+      <div class="card-favourite">
+        <fa-icon [icon]="faFileImage" size="3x"></fa-icon>
+      </div>
+      <div class="card-device-status" [class.card-device-active]="device.status === 'Available'">
+        <fa-icon [icon]="faCircle" size="xs"></fa-icon>
+        <span> {{ device.status }}</span>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="device-name">{{ device.deviceName }}</div>
+      <div class="device-app">{{ device.type }}</div>
+      <div class="device-info">{{ device.softwareVersion }}</div>
+      <div class="device-info">{{ device.firmwareVersion }}</div>
+    </div>
+  </div>
+  <div class="card-toolbox">
+    <div>
+      <fa-icon [icon]="faPen" size="sm"></fa-icon>
+    </div>
+    <div class="tools-divider"></div>
+    <div>
+      <fa-icon [icon]="faCog" size="sm"></fa-icon>
+    </div>
+    <div class="tools-divider"></div>
+    <div>
+      <fa-icon [icon]="faTrashAlt" size="sm"></fa-icon>
     </div>
   </div>
 </div>

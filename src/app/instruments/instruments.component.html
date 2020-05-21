@@ -1,11 +1,10 @@
-<div class="container-fluid" style="height: 100vh">
+<!-- <div class="container-fluid" style="height: 100vh">
 
-
-<div class="container-fluid">
+  <div class="container-fluid">
   <div class="col-12">
     <h4>Favorite</h4>
 <div class="row">
-  <div class="col-4" *ngFor="let item of deviceList" >
+  <div class="col-4" *ngFor="let item of favList" >
     <app-device-details [device]="item"></app-device-details>
   </div>
 </div>
@@ -15,38 +14,133 @@
 
 <div class="container-fluid mt-4">
   <div class="col-12">
-    <h4>All</h4>
+    <h4>{{ filterApllied ? 'Filtered By' : 'All'}}</h4>
+    <div class="col-12">
+      <div class="row">
+       <span class="badge m-3 badge-secondary p-2  badge-pill" *ngFor="let filter of activeFilter" > {{filter}}</span>
+      </div>
+    </div>
   </div>
   <div class="col text-right">
+    <div class="row justify-content-end">
+
+
     <div ngbDropdown placement="bottom-right" class="d-inline-block">
       <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle></button>
-      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic1" placement="bottom-left">
-       <div ngbDropdownItem class="jumbotron">
+      <div ngbDropdownMenu class="dropdown-menu filter" aria-labelledby="dropdownBasic1" placement="bottom-left">
+       <div ngbDropdownItem class="">
          <div class="container">
            <div class="col-12">
             <p>Filter By -</p>
             <p>Instrument Type</p>
             <div class="row">
-              <button type="button" class="btn btn-outline-secondary filter-badge m-3" (click)="applyFilter('revos')">Revos</button>
-              <button type="button" class="btn btn-outline-secondary filter-badge m-3"  (click)="applyFilter('rcom')">rcom</button>
-              <button type="button" class="btn btn-outline-secondary filter-badge m-3"  (click)="applyFilter('lorem')">lorem</button>
-              <button type="button" class="btn btn-outline-secondary filter-badge m-3"  (click)="applyFilter('lorem2')">lorem2</button>
+              <button type="button" class="btn btn-outline-secondary filter-badge m-3" [ngClass]="{'isActive': checkFilter('revos')}" (click)="applyFilter('revos')">Revos</button>
+              <button type="button" class="btn btn-outline-secondary filter-badge m-3"  [ngClass]="{'isActive': checkFilter('rcom')}" (click)="applyFilter('rcom')">rcom</button>
+              <button type="button" class="btn btn-outline-secondary filter-badge m-3" [ngClass]="{'isActive': checkFilter('lorem')}"  (click)="applyFilter('lorem')">lorem</button>
+              <button type="button" class="btn btn-outline-secondary filter-badge m-3" [ngClass]="{'isActive': checkFilter('lorem2')}"  (click)="applyFilter('lorem2')">lorem2</button>
             </div>
             <div class="row">
               <button type="button" class="btn btn-primary">Apply</button>
+              <button type="button" class="btn btn-danger" (click)="filterRemoved()">Clear filter</button>
             </div>
            </div>
          </div>
        </div>
       </div>
     </div>
+
+    <div ngbDropdown placement="bottom-right" class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle></button>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic2" placement="bottom-left">
+      <button ngbDropdownItem (click)="sortDevices(0)">A-Z</button>
+      <button ngbDropdownItem (click)="sortDevices(1)">Z-A</button>
+      </div>
+    </div>
+
+
+    </div>
   </div>
 </div>
 <div class="container-fluid">
   <div class="row w-100">
-    <div class="col-4" *ngFor="let item of allList" >
-      <app-device-details [device]="item"></app-device-details>
+    <div class="col-4" *ngFor="let item of deviceList" >
+      <app-device-details (favoriteDeviceclicked)="addToFavorite($event)" [device]="item"></app-device-details>
     </div>
   </div>
 </div>
-</div>
+</div> -->
+
+
+<!--  vaibhav code -->
+<main role="main" class="py-3 bg-light">
+  <div class="container-fluid p-5">
+    <div class="device-header my-4">
+      <h2>Favorite</h2>
+    </div>
+    <div class="col-12">
+      <div class="row">
+
+        <div class="col-4" *ngFor="let item of favList">
+          <app-device-details (favoriteDeviceclicked)="removeFromFavorite($event)" [device]="item"></app-device-details>
+        </div>
+      </div>
+    </div>
+    <div class="devices-header my-4">
+      <h2>{{ filterApllied ? 'Filtered By' : 'All'}}</h2>
+      <hr />
+      <div class="device-actions">
+
+        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+          <i id="dropdownBasic1" class="material-icons" ngbDropdownToggle>sort</i>
+          <span>Filter</span>
+          <!-- <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle></button> -->
+          <div ngbDropdownMenu class="dropdown-menu filter" aria-labelledby="dropdownBasic1" placement="bottom-left">
+            <div ngbDropdownItem class="">
+              <div class="container">
+                <div class="col-12">
+                  <p>Filter By -</p>
+                  <p>Instrument Type</p>
+                  <div class="row">
+                    <button type="button" class="btn btn-outline-secondary filter-badge m-3"
+                      [ngClass]="{'isActive': checkFilter('revos')}" (click)="applyFilter('revos')">Revos</button>
+                    <button type="button" class="btn btn-outline-secondary filter-badge m-3"
+                      [ngClass]="{'isActive': checkFilter('rcom')}" (click)="applyFilter('rcom')">rcom</button>
+                    <button type="button" class="btn btn-outline-secondary filter-badge m-3"
+                      [ngClass]="{'isActive': checkFilter('lorem')}" (click)="applyFilter('lorem')">lorem</button>
+                    <button type="button" class="btn btn-outline-secondary filter-badge m-3"
+                      [ngClass]="{'isActive': checkFilter('lorem2')}" (click)="applyFilter('lorem2')">lorem2</button>
+                  </div>
+                  <div class="row">
+                    <button type="button" class="btn btn-primary">Apply</button>
+                    <button type="button" class="btn btn-danger" (click)="filterRemoved()">Clear filter</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="device-actions">
+        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+          <i ngbDropdownToggle id="dropdownBasic2" class="material-icons">swap_vert</i>
+          <span>Sort</span>
+          <!-- <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle></button> -->
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic2" placement="bottom-left">
+            <button ngbDropdownItem (click)="sortDevices(0)">A-Z</button>
+            <button ngbDropdownItem (click)="sortDevices(1)">Z-A</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- <div class="col-md-4 my-4 device-card" *ngFor="let device of devices$ | async">
+        <app-device-card [device]="device"></app-device-card>
+      </div> -->
+      <div class="col-md-4 my-4 device-card" *ngFor="let item of deviceList">
+        <app-device-details (favoriteDeviceclicked)="addToFavorite($event)" [device]="item"></app-device-details>
+      </div>
+    </div>
+  </div>
+</main>

@@ -9,7 +9,7 @@ import { InstrumentsRoutingModule } from './instruments-routing.module';
 import { InstrumentsComponent } from './instruments.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeviceDetailsComponent } from './componants/device-details/device-details.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [InstrumentsComponent, DeviceDetailsComponent],
@@ -19,7 +19,8 @@ import { DeviceDetailsComponent } from './componants/device-details/device-detai
     HttpClientModule,
     EffectsModule.forFeature(),
     DeviceStoreModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ]
 })
 export class InstrumentsModule { }
