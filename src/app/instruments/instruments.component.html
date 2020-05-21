@@ -72,7 +72,7 @@
 
 
 <!--  vaibhav code -->
-<main role="main" class="py-3 bg-light">
+<main role="main" class="bg-light">
   <div class="container-fluid p-5" style="height: 100vh;">
     <div class="device-header my-4">
       <h2>Favorite</h2>
@@ -80,6 +80,9 @@
     <div class="col-12">
       <div class="row">
 
+        <div class="card favorite-devices w-100" *ngIf="favList.length < 1" >
+          You can mark 3 instruments as favorites and monitor them
+        </div>
         <div class="col-4" *ngFor="let item of favList">
           <app-device-details [isFav]="true" (favoriteDeviceclicked)="removeFromFavorite($event)" [device]="item"></app-device-details>
         </div>
