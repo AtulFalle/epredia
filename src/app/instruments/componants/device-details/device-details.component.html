@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="img">
+          <img src="" alt="" srcset="" height="25px">
+
+        </div>
+        <div class="col-12 mt-1">
+
+        <div class="row">
+          <p class="mt-2"  [ngClass]="{'status': device.status == 'Available', 'status-error': device.status != 'Available'}"></p>
+          <p class="ml-3">{{device.status}}</p>
+        </div>
+      </div>
+
+      </div>
+      <div class="col-8">
+        <p>{{device.deviceName}}</p>
+        <p>{{device.serialNumber}}
+        <p>{{device.firmwareVersion}}</p>
+      </div>
+    </div>
+  </div>
+</div>

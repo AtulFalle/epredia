@@ -1,5 +1,52 @@
-<ul>
-  <li *ngFor="let item of deviceList | async">
-    {{item._id}}
-  </li>
-</ul>
+<div class="container-fluid" style="height: 100vh">
+
+
+<div class="container-fluid">
+  <div class="col-12">
+    <h4>Favorite</h4>
+<div class="row">
+  <div class="col-4" *ngFor="let item of deviceList" >
+    <app-device-details [device]="item"></app-device-details>
+  </div>
+</div>
+  </div>
+</div>
+
+
+<div class="container-fluid mt-4">
+  <div class="col-12">
+    <h4>All</h4>
+  </div>
+  <div class="col text-right">
+    <div ngbDropdown placement="bottom-right" class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle></button>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic1" placement="bottom-left">
+       <div ngbDropdownItem class="jumbotron">
+         <div class="container">
+           <div class="col-12">
+            <p>Filter By -</p>
+            <p>Instrument Type</p>
+            <div class="row">
+              <button type="button" class="btn btn-outline-secondary filter-badge m-3" (click)="applyFilter('revos')">Revos</button>
+              <button type="button" class="btn btn-outline-secondary filter-badge m-3"  (click)="applyFilter('rcom')">rcom</button>
+              <button type="button" class="btn btn-outline-secondary filter-badge m-3"  (click)="applyFilter('lorem')">lorem</button>
+              <button type="button" class="btn btn-outline-secondary filter-badge m-3"  (click)="applyFilter('lorem2')">lorem2</button>
+            </div>
+            <div class="row">
+              <button type="button" class="btn btn-primary">Apply</button>
+            </div>
+           </div>
+         </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row w-100">
+    <div class="col-4" *ngFor="let item of allList" >
+      <app-device-details [device]="item"></app-device-details>
+    </div>
+  </div>
+</div>
+</div>

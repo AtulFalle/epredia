@@ -6,4 +6,5 @@ export interface Device {
   firmwareVersion: string;
   softwareVersion: string;
   status: string;
+  type?: string;
 }
