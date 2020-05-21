@@ -29,7 +29,7 @@
 <div class="card-container">
   <div class="card-actions">
     <div class="card-image">
-      <fa-icon [icon]="faStar" size="sm" (click)="addTofav()"></fa-icon>
+      <fa-icon [icon]="faStar" size="sm" (click)="addTofav()" [ngClass]="{'isfav': isFav}"></fa-icon>
     </div>
     <div>
       <fa-icon [icon]="faEllipsisV" size="sm"></fa-icon>

@@ -73,7 +73,7 @@
 
 <!--  vaibhav code -->
 <main role="main" class="py-3 bg-light">
-  <div class="container-fluid p-5">
+  <div class="container-fluid p-5" style="height: 100vh;">
     <div class="device-header my-4">
       <h2>Favorite</h2>
     </div>
@@ -81,13 +81,15 @@
       <div class="row">
 
         <div class="col-4" *ngFor="let item of favList">
-          <app-device-details (favoriteDeviceclicked)="removeFromFavorite($event)" [device]="item"></app-device-details>
+          <app-device-details [isFav]="true" (favoriteDeviceclicked)="removeFromFavorite($event)" [device]="item"></app-device-details>
         </div>
       </div>
     </div>
     <div class="devices-header my-4">
       <h2>{{ filterApllied ? 'Filtered By' : 'All'}}</h2>
+
       <hr />
+
       <div class="device-actions">
 
         <div ngbDropdown placement="bottom-right" class="d-inline-block">
@@ -133,11 +135,15 @@
           </div>
         </div>
       </div>
+
+    </div>
+    <div class="col-12">
+      <div class="row">
+       <span class="badge m-2 badge-secondary p-2  badge-pill" *ngFor="let filter of activeFilter" > {{filter}}</span>
+      </div>
     </div>
     <div class="row">
-      <!-- <div class="col-md-4 my-4 device-card" *ngFor="let device of devices$ | async">
-        <app-device-card [device]="device"></app-device-card>
-      </div> -->
+
       <div class="col-md-4 my-4 device-card" *ngFor="let item of deviceList">
         <app-device-details (favoriteDeviceclicked)="addToFavorite($event)" [device]="item"></app-device-details>
       </div>

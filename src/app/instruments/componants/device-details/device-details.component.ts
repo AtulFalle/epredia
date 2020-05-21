@@ -18,6 +18,9 @@ import {
 export class DeviceDetailsComponent implements OnInit {
 
   @Input()
+  isFav: boolean;
+
+  @Input()
   device: Device;
   @Output()
   favoriteDeviceclicked: EventEmitter<Device> = new EventEmitter(null);

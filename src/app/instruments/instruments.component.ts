@@ -13,8 +13,8 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class InstrumentsComponent implements OnInit, OnDestroy {
 
- filterApllied = false;
- activeFilter = [];
+  filterApllied = false;
+  activeFilter = [];
 
   allList: Device[] = [];
   favList: Device[] = [];
@@ -28,14 +28,14 @@ export class InstrumentsComponent implements OnInit, OnDestroy {
     this.subscription$ = this.store.select(deviceList).subscribe((res: Device[]) => {
 
 
-     this.allList = res;
-     this.deviceList = res;
+      this.allList = res;
+      this.deviceList = res;
     });
 
   }
   applyFilter(type: string) {
 
-    if( this.activeFilter.includes(type)) {
+    if (this.activeFilter.includes(type)) {
       this.activeFilter.splice(this.activeFilter.indexOf(type), 1);
     } else {
       this.activeFilter.push(type);
@@ -47,7 +47,7 @@ export class InstrumentsComponent implements OnInit, OnDestroy {
       return this.activeFilter.includes(device.type);
     })
   }
-  filterRemoved( ) {
+  filterRemoved() {
     this.filterApllied = false;
     this.deviceList = [...this.allList];
     this.activeFilter = [];
@@ -55,11 +55,11 @@ export class InstrumentsComponent implements OnInit, OnDestroy {
   }
 
   checkFilter(filter: string) {
-return this.activeFilter.includes(filter);
+    return this.activeFilter.includes(filter);
   }
   sortDevices(val: number) {
 
-    if( val == 0) {
+    if (val == 0) {
       this.deviceList = [...this.deviceList].sort((a, b) => a.deviceName !== b.deviceName ? a.deviceName < b.deviceName ? -1 : 1 : 0)
     } else {
       this.deviceList = [...this.deviceList].sort((a, b) => a.deviceName !== b.deviceName ? a.deviceName < b.deviceName ? 1 : -1 : 0)
@@ -67,13 +67,18 @@ return this.activeFilter.includes(filter);
   }
   addToFavorite(item: Device) {
 
-    this.deviceList = this.deviceList.filter(  device => device._id != item._id);
+    if(this.favList.length >=3 ) {
+      return;
+    }
+    this.deviceList = this.deviceList.filter(device => device._id != item._id);
+    this.allList = this.allList.filter(device => device._id != item._id);
     this.favList = [...this.favList, item];
 
   }
   removeFromFavorite(item: Device) {
-    this.favList = this.favList.filter(  device => device._id != item._id);
+    this.favList = this.favList.filter(device => device._id != item._id);
     this.deviceList = [...this.deviceList, item];
+    this.allList = [...this.deviceList, item];
 
   }
 
