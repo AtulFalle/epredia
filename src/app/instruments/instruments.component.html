@@ -149,8 +149,8 @@
     </div>
     <div class="row">
 
-      <div class="col-md-4 my-4 device-card" *ngFor="let item of deviceList">
-        <app-device-details (favoriteDeviceclicked)="addToFavorite($event)" [device]="item"></app-device-details>
+      <div class="col-md-4 my-4 device-card" *ngFor="let item of deviceList" [ngClass]="{'d-none': checkToHideInInAll(item)}">
+        <app-device-details  (favoriteDeviceclicked)="addToFavorite($event)" [device]="item"></app-device-details>
       </div>
     </div>
   </div>
