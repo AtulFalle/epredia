@@ -1,13 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './componants/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 @NgModule({
-  declarations: [FooterComponent],
+  declarations: [],
   imports: [
     CommonModule,
-    HttpClientModule,
-  ]
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatCardModule,
+    MatIconModule,
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatCardModule,
+    MatDividerModule,
+    MatIconModule
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

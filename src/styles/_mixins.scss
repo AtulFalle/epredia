@@ -1,0 +1,18 @@
+@import "variables";
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@mixin container {
+  @include flexCenter();
+  padding: $container-padding;
+}
+
+@mixin header {
+  font-weight: bold;
+  width: 100%;  
+}
