@@ -9,7 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatChipsModule } from '@angular/material/chips';
 @NgModule({
   declarations: [],
   imports: [
@@ -24,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatMenuModule,
     MatButtonModule,
     MatDividerModule,
+    MatChipsModule,
   ],
   exports: [
     CommonModule,
@@ -38,6 +39,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatMenuModule,
     MatButtonModule,
     MatDividerModule,
+    MatChipsModule,
   ],
 })
 export class SharedModule {}

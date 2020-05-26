@@ -7,6 +7,10 @@ const selectInstruments = (state: State) => state.instruments.instruments;
 const selectSortOrder = (state: State) => state.instruments.sortOrder;
 const selectFilters = (state: State) => state.instruments.filters;
 
+export const instrumentsFilters = createSelector(selectFilters, (filters) => {
+  return filters;
+});
+
 export const selectInstrumentsSerialNum = createSelector(
   selectInstruments,
   (state: IInstrument[]) => {
@@ -17,14 +21,6 @@ export const selectInstrumentsSerialNum = createSelector(
   }
 );
 
-// export const selectFilteredInstrumentsList = createSelector(
-//   selectInstruments,
-//   (instruments => {
-//     debugger;
-//     return instruments;
-//   })
-// )
-
 export const selectFilteredInstrumentsList = createSelector(
   selectInstruments,
   selectSortOrder,
@@ -32,7 +28,9 @@ export const selectFilteredInstrumentsList = createSelector(
   (instruments: IInstrument[], sortOrder: string, filters: string[]) => {
     const filteredInstruments =
       filters.length > 0
-        ? instruments.filter((instrument) => filters.includes(instrument.serialNumber))
+        ? instruments.filter((instrument) =>
+            filters.includes(instrument.serialNumber)
+          )
         : [...instruments];
     switch (sortOrder) {
       case 'Name A-Z':

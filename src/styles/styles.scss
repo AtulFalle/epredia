@@ -49,4 +49,12 @@ body {
 // Menu
 .mat-menu-panel {
   border-radius: 10px !important;
+  max-width: 100% !important;
+}
+
+// Standar Chip 
+.mat-chip.mat-standard-chip {
+  background-color: $white;
+  color: $brand-blue;
+  border: 1px solid $brand-blue;
 }

@@ -22,6 +22,7 @@ export class InstrumentsComponent implements OnInit {
   instruments$: Observable<IInstrument[]>;
   isLoading$: Observable<boolean>;
   instrumentsSerialNum$: Observable<string[]>;
+  instrumentsFilters$: Observable<string[]>;
 
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -39,6 +40,9 @@ export class InstrumentsComponent implements OnInit {
     this.instrumentsSerialNum$ = this.store$.select(
       InstrumentsSelectors.selectInstrumentsSerialNum
     );
+    this.instrumentsFilters$ = this.store$.select(
+      InstrumentsSelectors.instrumentsFilters
+    );
   }
 
   registerIcons(): void {
@@ -49,6 +53,10 @@ export class InstrumentsComponent implements OnInit {
     this.matIconRegistry.addSvgIcon(
       'filter',
       this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/filter.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'close',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/svg/close.svg')
     );
   }
 
@@ -64,5 +72,28 @@ export class InstrumentsComponent implements OnInit {
   openFiltersFocus(element) {
     console.log(element);
     this.focusedMenu[element] = true;
+  }
+
+  toggleFilter(filter: string) {
+    if (this.filters.includes(filter)) {
+      this.filters = this.filters.filter((el) => {
+        if (el === filter) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+    } else {
+      this.filters = [...this.filters, filter];
+    }
+  }
+
+  applyFilters() {
+    this.store$.dispatch(InstrumentsActions.applyInstrumentsFilter({ filters: this.filters }));
+  }
+
+  removeFilter(filter) {
+    this.toggleFilter(filter);
+    this.applyFilters();
   }
 }
