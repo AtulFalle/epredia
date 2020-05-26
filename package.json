@@ -26,6 +26,8 @@
     "@ngrx/store": "^9.1.2",
     "@ngrx/store-devtools": "^9.1.2",
     "rxjs": "~6.5.4",
+    "single-spa": "^5.5.1",
+    "single-spa-angular": "^4.1.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
