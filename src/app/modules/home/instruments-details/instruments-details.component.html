@@ -1,0 +1,26 @@
+<mat-card class="instrument-details-card">
+  <mat-card-header class="instrument-details-header">
+    <mat-icon class="instrument-details-icon" svgIcon="star"></mat-icon>
+    <mat-icon class="instrument-details-icon" svgIcon="ellipses"></mat-icon>
+  </mat-card-header>
+  <mat-card-content class="card-content-wrapper">
+    <div class="card-media">
+      <div class="card-image">
+        <img src="assets/instrument_card.png" alt="Instrument Image" />
+      </div>
+      <div
+        class="card-instrument-status"
+        [class.card-instrument-active]="instrument.status === 'Available'"
+      >
+        <mat-icon class="instrument-status-icon" svgIcon="circle"></mat-icon>
+        <span>{{ instrument.status }}</span>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="instrument-name">{{ instrument.deviceName }}</div>
+      <div class="instrument-app">{{ instrument.type }}</div>
+      <div class="instrument-info">{{ instrument.softwareVersion }}</div>
+      <div class="instrument-info">{{ instrument.firmwareVersion }}</div>
+    </div>
+  </mat-card-content>
+</mat-card>

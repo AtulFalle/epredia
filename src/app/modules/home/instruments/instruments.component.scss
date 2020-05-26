@@ -9,7 +9,7 @@
   }
   .favorites-card-space {
     @include flexCenter;
-    height: 200px;
+    height: 140px;
     border: 1px solid $brand-blue;
     background-color: rgba(48, 37, 80, 0.1);
     width: 100%;
@@ -28,6 +28,14 @@
       width: 95%;
       border-top-color: $brand-grey;
       padding-bottom: 15px;
+    }
+  }
+  .instruments-cards-wrapper {
+    @include flexCenter;
+    justify-content: flex-start;
+    .instrument-card {
+      width: 30%;
+      margin: 15px;
     }
   }
 }
