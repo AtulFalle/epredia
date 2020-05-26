@@ -7,7 +7,7 @@ const selectInstruments = (state: State) => state.instruments.instruments;
 const selectSortOrder = (state: State) => state.instruments.sortOrder;
 const selectFilters = (state: State) => state.instruments.filters;
 
-export const selectDevicesSerialNum = createSelector(
+export const selectInstrumentsSerialNum = createSelector(
   selectInstruments,
   (state: IInstrument[]) => {
     const instrumentsSerialNum = state.map(

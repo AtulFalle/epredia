@@ -7,7 +7,33 @@
   <div class="app-instruments-list">
     <h2 class="app-header">All</h2>
     <mat-divider></mat-divider>
-    <mat-icon svgIcon="sort"></mat-icon>
+    <div class="filter-icons">
+      <button mat-icon-button>
+        <mat-icon svgIcon="filter"></mat-icon>
+      </button>
+      <span>Filter</span>
+    </div>
+    <div class="vertical-divider"></div>
+    <div class="filter-icons">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="sortMenu"
+        (menuClosed)="closeFiltersFocus('sort')"
+        (menuOpened)="openFiltersFocus('sort')"
+        [class.active-menu]="focusedMenu.sort"
+      >
+        <mat-icon svgIcon="sort"></mat-icon>
+      </button>
+      <span>Sort</span>
+    </div>
+    <mat-menu #sortMenu="matMenu">
+      <div *ngFor="let sortOrder of sortOrders; let i = index">
+        <button mat-menu-item (click)="changeSortOrder(sortOrder)">
+          {{ sortOrder }}
+        </button>
+        <mat-divider *ngIf="i + 1 < sortOrders.length"></mat-divider>
+      </div>
+    </mat-menu>
   </div>
   <div class="instruments-cards-wrapper">
     <div

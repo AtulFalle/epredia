@@ -4,6 +4,7 @@
 .app-container {
   @include container;
   padding-top: 5vh;
+  justify-content: flex-start;
   .app-header {
     @include header;
   }
@@ -12,7 +13,7 @@
     height: 140px;
     border: 1px solid $brand-blue;
     background-color: rgba(48, 37, 80, 0.1);
-    width: 100%;
+    width: calc(90% + 35px);
     font-style: italic;
     color: $brand-blue;
   }
@@ -24,8 +25,19 @@
     .app-header {
       width: 5%;
     }
+    .filter-icons {
+      text-align: center;
+      width: 5%;
+      .active-menu {
+        color: $brand-pink;
+      }
+    }
+    .vertical-divider {
+      height: 35px;
+      border-right: 1px solid $brand-grey;
+    }
     .mat-divider {
-      width: 95%;
+      width: 85%;
       border-top-color: $brand-grey;
       padding-bottom: 15px;
     }
@@ -35,7 +47,7 @@
     justify-content: flex-start;
     .instrument-card {
       width: 30%;
-      margin: 15px;
+      margin: 35px 35px 0 0;
     }
   }
 }
