@@ -37,6 +37,8 @@
 
 .card-actions>div {
   padding: 5px;
+  width: 24px;
+  text-align: center;
 }
 
 .card-media {
@@ -57,7 +59,7 @@
 .card-content-wrapper {
   display: flex;
   justify-content: center;
-  height: calc(100% - 30px);
+  height: calc(100% - 42px);
 }
 
 .card-media>div {
@@ -97,7 +99,7 @@
   width: 30px;
   position: absolute;
   height: 100%;
-  right: -31;
+  right: -31px;
   top: 0px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
@@ -107,7 +109,7 @@
   justify-content: space-around;
   align-items: center;
   color: #e91e63;
-  display: none;
+  // display: none;
 }
 
 .tools-divider {
@@ -120,4 +122,7 @@
 }
 .isfav{
   color: mediumvioletred;
+}
+.mat-dialog-container {
+  width: 820px;
 }

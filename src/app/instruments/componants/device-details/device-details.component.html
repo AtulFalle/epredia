@@ -1,38 +1,10 @@
-<!-- <div class="card">
-  <div class="container" (click)="addTofav()">
-    <div class="row">
-      <div class="col-4">
-        <div class="img">
-          <img src="" alt="" srcset="" height="25px">
-
-        </div>
-        <div class="col-12 mt-1">
-
-        <div class="row">
-          <p class="mt-2"  [ngClass]="{'status': device.status == 'Available', 'status-error': device.status != 'Available'}"></p>
-          <p class="ml-3">{{device.status}}</p>
-        </div>
-      </div>
-
-      </div>
-      <div class="col-8">
-        <p>{{device.deviceName}}</p>
-        <p>{{device.serialNumber}}
-        <p>{{device.firmwareVersion}}</p>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-<div class="card-container">
+<div class="card-container mx-2">
   <div class="card-actions">
     <div class="card-image">
-      <fa-icon [icon]="faStar" size="sm" (click)="addTofav()" [ngClass]="{'isfav': isFav}"></fa-icon>
+      <fa-icon [icon]="faStar" size="sm" class="fav-btn" (click)="addTofav()" [ngClass]="{'isfav': isFav}"></fa-icon>
     </div>
-    <div>
-      <fa-icon [icon]="faEllipsisV" size="sm"></fa-icon>
+    <div (click)="showToolbar = !showToolbar">
+      <fa-icon [icon]="faEllipsisV" size="sm" ></fa-icon>
     </div>
   </div>
   <div class="card-content-wrapper">
@@ -42,27 +14,27 @@
       </div>
       <div class="card-device-status" [class.card-device-active]="device.status === 'Available'">
         <fa-icon [icon]="faCircle" size="xs"></fa-icon>
-        <span> {{ device.status }}</span>
+        <span class="device-status"> {{ device.status }}</span>
       </div>
     </div>
     <div class="card-content">
       <div class="device-name">{{ device.deviceName }}</div>
       <div class="device-app">{{ device.type }}</div>
-      <div class="device-info">{{ device.softwareVersion }}</div>
+      <div class="device-info soft-version">{{ device.softwareVersion }}</div>
       <div class="device-info">{{ device.firmwareVersion }}</div>
     </div>
   </div>
-  <div class="card-toolbox">
+  <div class="card-toolbox" [class.d-none]= "!showToolbar">
     <div>
       <fa-icon [icon]="faPen" size="sm"></fa-icon>
     </div>
-    <div class="tools-divider"></div>
+    <!-- <div class="tools-divider"></div> -->
     <div>
       <fa-icon [icon]="faCog" size="sm"></fa-icon>
     </div>
-    <div class="tools-divider"></div>
+    <!-- <div class="tools-divider"></div> -->
     <div>
-      <fa-icon [icon]="faTrashAlt" size="sm"></fa-icon>
+      <fa-icon [icon]="faTrashAlt" size="sm" (click)="disconnectDevice()"></fa-icon>
     </div>
   </div>
 </div>

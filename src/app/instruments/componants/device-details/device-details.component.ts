@@ -8,9 +8,11 @@ import {
   faCog,
   faPen,
   faTrashAlt,
-
-
 } from '@fortawesome/free-solid-svg-icons';
+import { MatDialog } from '@angular/material/dialog';
+import { DisconnectAdminComponent } from '../../shared/popups/disconnect-admin/disconnect-admin.component';
+import { DisconnectUserComponent } from '../../shared/popups/disconnect-user/disconnect-user.component';
+import { SharedService } from '../../shared/service/shared.service';
 
 @Component({
   selector: 'app-device-details',
@@ -35,9 +37,36 @@ export class DeviceDetailsComponent implements OnInit {
   faCog = faCog;
   faPen = faPen;
   faTrashAlt = faTrashAlt;
-  constructor() { }
+  showToolbar = false;
+
+  constructor(public dialog: MatDialog, private sharedService: SharedService) { }
 
   ngOnInit(): void {
+  }
+
+  disconnectDevice() {
+
+    this.sharedService.isUserisAdmin() ? this.openAdminDialog() : this.openUserDialog();
+
+
+  }
+
+  private openAdminDialog() {
+    const diaRef = this.dialog.open(DisconnectAdminComponent, {
+      data: this.device
+    });
+    diaRef.afterClosed().subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  openUserDialog() {
+    const diaRef = this.dialog.open(DisconnectUserComponent, {
+      data: this.device });
+    diaRef.afterClosed().subscribe(res => {
+      console.log(res);
+
+    });
   }
 
   addTofav() {

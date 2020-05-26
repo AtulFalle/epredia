@@ -10,6 +10,7 @@ import { DeviceStoreModule } from '../device-store';
 import { MicroContainerComponent } from './componants/micro-container/micro-container.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     EffectsModule.forRoot(),
     DeviceStoreModule,
     NgbModule,
-    SharedModule
+    SharedModule,
+    NoopAnimationsModule
 
   ],
   providers: [],

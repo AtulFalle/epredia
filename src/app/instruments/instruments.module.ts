@@ -10,9 +10,16 @@ import { InstrumentsComponent } from './instruments.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeviceDetailsComponent } from './componants/device-details/device-details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DisconnectUserComponent} from './shared/popups/disconnect-user/disconnect-user.component';
+import { DisconnectAdminComponent} from './shared/popups/disconnect-admin/disconnect-admin.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
-  declarations: [InstrumentsComponent, DeviceDetailsComponent],
+  declarations: [InstrumentsComponent, DeviceDetailsComponent, DisconnectUserComponent, DisconnectAdminComponent],
   imports: [
     CommonModule,
     InstrumentsRoutingModule,
@@ -20,7 +27,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EffectsModule.forFeature(),
     DeviceStoreModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatRadioModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule
+
   ]
 })
 export class InstrumentsModule { }

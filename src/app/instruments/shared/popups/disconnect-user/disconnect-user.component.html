@@ -1,0 +1,13 @@
+<div class="user-dialog">
+
+
+  <h2 mat-dialog-title class="">Disconnect me from {{data.deviceName}}</h2>
+  <mat-icon class="close-icon" (click)="closeDialog()" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+  <mat-dialog-content class="mat-typography">
+    <p>You are about to remove your access to the <strong>{{data.deviceName}}</strong></p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end" class="pt-5 mb-1">
+    <button mat-button class="btn-cancle" (click)="closeDialog()">CANCLE</button>
+    <button mat-button class="btn-confirm" (click)="closeDialog()">CONFIRM</button>
+  </mat-dialog-actions>
+  </div>

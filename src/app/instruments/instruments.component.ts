@@ -106,6 +106,12 @@ export class InstrumentsComponent implements OnInit, OnDestroy {
     return this.favList.includes(device) || ( !this.activeFilter.includes(device.type) && this.activeFilter.length > 0 );
   }
 
+  searchDevice(val: string) {
+
+console.log(val);
+
+  }
+
 
   /**
    * unsubscribe from all subscription

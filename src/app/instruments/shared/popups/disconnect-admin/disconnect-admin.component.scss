@@ -1,0 +1,48 @@
+.close-icon {
+    float: right !important;
+    margin-top: -45px !important;
+    cursor: pointer;
+}
+.error {
+  color: red;;
+}
+.radio-label {
+  padding-left: 70px;
+  padding-right: 45px;
+}
+
+.btn-confirm, .btn-confirm:active ,.btn-confirm:hover{
+  width: 166px;
+  height: 45px;
+  border-radius: 6px;
+  border: solid 1.3px #ec008c;
+  background-color: #ec008c;
+  color: white;
+}
+.btn-cancle{
+  width: 166px;
+  height: 45px;
+  border-radius: 6px;
+  border: solid 1.3px #ec008c;
+}
+.option-header{
+  font-size: 18px;
+}
+.option-content{
+  font-size: 16px;
+  margin-top: 11px;
+}
+mat-dialog-content{
+  border-top: 1px solid lightgray;
+  padding-top: 1.5rem;
+}
+
+.border-top{
+border-top: 1px solid lightgrey;
+margin-top: 1rem;
+padding-top: 1.5rem;
+}
+
+.admin-dialog{
+  width: 850px;
+}
