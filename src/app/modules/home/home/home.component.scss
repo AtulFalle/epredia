@@ -1,0 +1,19 @@
+@import "variables";
+
+.home-tab-header {
+  background-color: $white;
+  .mat-tab-label-active {
+    font-weight: bold;
+  }
+  .mat-tab-label {
+    color: $brand-dark-grey;
+    opacity: 1;
+  }
+  .mat-tab-header {
+    padding: $container-padding;
+    border-bottom: none;
+  }
+  .mat-tab-body-wrapper {
+    background: $light-grey;
+  }
+}

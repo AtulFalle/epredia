@@ -3,8 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  serverUrl : 'https://eprediacosmosdbapi.azurewebsites.net/api'
+  production: false
 };
 
 /*

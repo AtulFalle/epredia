@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "device-list": {
+    "epredia-container": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,27 +17,23 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/epredia-container",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
-            "scripts": [
-              "node_modules/systemjs/dist/system.min.js",
-              "node_modules/systemjs/dist/extras/amd.min.js",
-              "node_modules/systemjs/dist/extras/named-exports.min.js",
-              "node_modules/systemjs/dist/extras/named-register.min.js",
-              "node_modules/import-map-overrides/dist/import-map-overrides.js"
-            ]
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -73,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "device-list:build"
+            "browserTarget": "epredia-container:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "device-list:build:production"
+              "browserTarget": "epredia-container:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "device-list:build"
+            "browserTarget": "epredia-container:build"
           }
         },
         "test": {
@@ -99,7 +95,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "scripts": []
           }
@@ -121,16 +117,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "device-list:serve"
+            "devServerTarget": "epredia-container:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "device-list:serve:production"
+              "devServerTarget": "epredia-container:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "device-list"
+  "defaultProject": "epredia-container",
+  "cli": {
+    "analytics": false
+  }
 }

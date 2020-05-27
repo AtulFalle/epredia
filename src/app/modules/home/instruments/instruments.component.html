@@ -1,0 +1,94 @@
+<div class="app-container">
+  <h2 class="app-header">Favourites</h2>
+  <mat-card class="favorites-card-space">
+    You can mark 3 instruments as favorites and monitor them
+  </mat-card>
+
+  <div class="app-instruments-list">
+    <h2 class="app-header">All</h2>
+    <mat-divider></mat-divider>
+    <div class="filter-icons">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="filterMenu"
+        (menuClosed)="closeFiltersFocus('filter')"
+        (menuOpened)="openFiltersFocus('filter')"
+        [class.active-menu]="focusedMenu.filter"
+      >
+        <mat-icon svgIcon="filter"></mat-icon>
+      </button>
+      <span>Filter</span>
+    </div>
+    <mat-menu #filterMenu="matMenu">
+      <mat-card>
+        <div>
+          <div>Filter By</div>
+          <div class="dropdown-filter-list">Instrument Type</div>
+          <div class="dropdown-filter-buttons">
+            <mat-chip-list>
+              <mat-chip
+                *ngFor="
+                  let instrumentSerialNum of instrumentsSerialNum$ | async
+                "
+                (click)="toggleFilter(instrumentSerialNum)"
+                color="accent"
+                [selected]="filters.includes(instrumentSerialNum)"
+              >
+                {{ instrumentSerialNum }}
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+          <div class="dropdown-filter-submit">
+            <button mat-raised-button color="primary" (click)="applyFilters()">
+              Apply
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </mat-menu>
+    <div class="vertical-divider"></div>
+    <div class="filter-icons">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="sortMenu"
+        (menuClosed)="closeFiltersFocus('sort')"
+        (menuOpened)="openFiltersFocus('sort')"
+        [class.active-menu]="focusedMenu.sort"
+      >
+        <mat-icon svgIcon="sort"></mat-icon>
+      </button>
+      <span>Sort</span>
+    </div>
+    <mat-menu #sortMenu="matMenu">
+      <div *ngFor="let sortOrder of sortOrders; let i = index">
+        <button mat-menu-item (click)="changeSortOrder(sortOrder)">
+          {{ sortOrder }}
+        </button>
+        <mat-divider *ngIf="i + 1 < sortOrders.length"></mat-divider>
+      </div>
+    </mat-menu>
+  </div>
+  <div class="filters-wrapper">
+    <mat-chip-list>
+      <mat-chip
+        *ngFor="let instrumentsFilter of instrumentsFilters$ | async"
+        selected
+        color="accent"
+        (click)="removeFilter(instrumentsFilter)"
+      >
+        {{ instrumentsFilter }}
+        <mat-icon class="close-filter" svgIcon="close"></mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="instruments-cards-wrapper">
+    <div
+      class="instrument-card"
+      *ngFor="let instrument of instruments$ | async"
+    >
+      <app-instruments-details
+        [instrument]="instrument"
+      ></app-instruments-details>
+    </div>
+  </div>
+</div>

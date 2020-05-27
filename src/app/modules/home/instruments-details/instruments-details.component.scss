@@ -1,0 +1,62 @@
+@import "mixins";
+
+.instrument-details-card {
+  height: 140px;
+  .instrument-details-header {
+    @include flexCenter;
+    justify-content: flex-end;
+    height: 15px;
+    .instrument-details-icon {
+      font-size: 15px;
+      width: 15px;
+      color: $brand-grey;
+    }
+  }
+  .card-content-wrapper {
+    display: flex;
+    justify-content: center;
+    height: calc(100% - 20px);
+    .card-media {
+      height: 100%;
+      width: 30%;
+      text-align: center;
+      .card-image {
+        width: 100%;
+      }
+      .card-instrument-status {
+        @include flexCenter;
+        font-size: x-small;
+        color: $error-pink;
+        padding: 0;
+        .instrument-status-icon {
+          width: 10px;
+          padding: 0 5px;
+        }
+      }
+      .card-instrument-active {
+        color: $health-green;
+      }
+    }
+    .card-content {
+      width: 70%;
+      display: flex;
+      flex-wrap: wrap;
+      height: 100%;
+      padding: 5px;
+      .instrument-name {
+        font-weight: bold;
+        width: 100%;
+      }
+      .instrument-app {
+        font-size: smaller;
+        font-weight: bold;
+        padding: 1vw 0;
+        width: 100%;
+      }
+      .instrument-info {
+        font-size: x-small;
+        width: 100%;
+      }
+    }
+  }
+}

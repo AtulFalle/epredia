@@ -1,0 +1,60 @@
+@import "~@angular/material/theming";
+@import "./palette";
+@import "./variables";
+@import "./mixins";
+
+// Describe the font you want to use and pass the variable in mat-core($custom-typography)
+$custom-typography: mat-typography-config(
+  $font-family: "Helvetica",
+);
+
+@include mat-core($custom-typography);
+
+$epredia-container-primary: mat-palette($primary-palette, 500, 300, 700);
+$epredia-container-accent: mat-palette($accent-palette, 500, 300, 700);
+$epredia-container-warn: mat-palette($fault-palette);
+$epredia-container-theme: mat-light-theme(
+  $epredia-container-primary,
+  $epredia-container-accent,
+  $epredia-container-warn
+);
+
+@include angular-material-theme($epredia-container-theme);
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Helvetica";
+  background-color: $light-grey;
+}
+
+// Add CSS for material components
+
+// Toolbar
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+// Card
+.mat-card {
+  box-shadow: none !important;
+  border-radius: 13px !important;
+}
+
+// Menu
+.mat-menu-panel {
+  border-radius: 10px !important;
+  max-width: 100% !important;
+}
+
+// Standar Chip 
+.mat-chip.mat-standard-chip {
+  background-color: $white;
+  color: $brand-blue;
+  border: 1px solid $brand-blue;
+}

@@ -1,0 +1,77 @@
+@import "variables";
+@import "mixins";
+
+.app-container {
+  @include container;
+  padding-top: 5vh;
+  justify-content: flex-start;
+  .app-header {
+    @include header;
+  }
+  .favorites-card-space {
+    @include flexCenter;
+    height: 140px;
+    border: 1px solid $brand-blue;
+    background-color: rgba(48, 37, 80, 0.1);
+    width: calc(90% + 35px);
+    font-style: italic;
+    color: $brand-blue;
+  }
+  .app-instruments-list {
+    @include flexCenter;
+    width: 100%;
+    padding-top: 5vh;
+    flex-wrap: nowrap;
+    .app-header {
+      width: 5%;
+    }
+    .filter-icons {
+      text-align: center;
+      width: 5%;
+      .active-menu {
+        color: $brand-pink;
+      }
+    }
+    .vertical-divider {
+      height: 35px;
+      border-right: 1px solid $brand-grey;
+    }
+    .mat-divider {
+      width: 85%;
+      border-top-color: $brand-grey;
+      padding-bottom: 15px;
+    }
+  }
+  .filters-wrapper {
+    @include flexCenter;
+    justify-content: flex-start;
+    width: 100%;
+    .close-filter {
+      width: 15px;
+      padding-left: 5px;
+    }
+  }
+  .instruments-cards-wrapper {
+    @include flexCenter;
+    justify-content: flex-start;
+    width: 100%;
+    .instrument-card {
+      width: 30%;
+      margin: 35px 35px 0 0;
+    }
+  }
+}
+
+.dropdown-filter-list {
+  font-size: small;
+  font-weight: bold;
+  color: $brand-blue;
+}
+.dropdown-filter-buttons {
+  display: flex;
+  min-width: 300px;
+}
+.dropdown-filter-submit {
+  display: flex;
+  justify-content: flex-end;
+}
