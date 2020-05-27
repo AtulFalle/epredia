@@ -26,11 +26,26 @@
   border: solid 1.3px #ec008c;
 }
 .option-header{
+  font-family: Roboto;
   font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
 }
 .option-content{
   font-size: 16px;
   margin-top: 11px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
 }
 mat-dialog-content{
   border-top: 1px solid lightgray;
@@ -45,4 +60,26 @@ padding-top: 1.5rem;
 
 .admin-dialog{
   width: 850px;
+  background: white;
+    padding: 2rem;
+}
+
+.title{
+  font-family: HelveticaNeueLTStd-65;
+  font-size: 22px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #302550;
+}
+.pl-3{
+  padding-left: 3rem;
+}
+.action-btn{
+  justify-content: end;;
+}
+.btn-cancle{
+  margin-right: 10px;
 }

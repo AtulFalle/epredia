@@ -1,4 +1,147 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: .25rem
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.card-shadow {
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16);
+}
+
+.col-4 {
+  display: flex;
+  flex-direction: column;
+  ;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.card-content p {
+  font-family: HelveticaNeueLTStd-55Roman;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #a7a9ac;
+}
+
+.card-content {
+  min-height: 200px;
+  overflow-y: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col-12 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup {
+  position: fixed;
+  /* Sit on top of the page content */
+  width: 100%;
+  /* Full width (cover the whole page) */
+  height: 100%;
+  /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black background with opacity */
+  z-index: 2;
+  /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer;
+  /* Add a pointer on hover */
+  padding-left: 29%;
+  padding-top: 9%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.col-6 {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-8 {
+  display: flex;
+  flex-direction: column;
+  ;
+  flex: 0 0 66.66666%;
+  max-width: 66.66666%;
+}
+
+button.primary,
+button.primary:hover {
+
+  border-radius: 5.3px;
+  border: solid 1.3px #ec008c;
+  background-color: #ec008c;
+}
+
+.col-9 {
+  display: flex;
+  flex-direction: column;
+  ;
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.col-3 {
+  display: flex;
+  flex-direction: column;
+  ;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+.d-none{
+  display: none;
+}

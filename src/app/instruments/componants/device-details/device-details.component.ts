@@ -26,12 +26,17 @@ export class DeviceDetailsComponent implements OnInit {
 
   isEditName = false;  // flag to check if user is allowed/clicked to edit name or not
   @Input()
+  index: number;
+
+  @Input()
   isFav: boolean;
 
   @Input()
   device: Device;
   @Output()
   favoriteDeviceclicked: EventEmitter<Device> = new EventEmitter(null);
+  @Output()
+  deviceDeleted: EventEmitter<Device> = new EventEmitter(null);
 
 
   faFileImage = faFileImage;
@@ -76,6 +81,7 @@ export class DeviceDetailsComponent implements OnInit {
   }
 
   addTofav() {
+    this.showToolbar = false;
     this.favoriteDeviceclicked.emit(this.device);
   }
   editDeviceName() {
@@ -85,7 +91,10 @@ export class DeviceDetailsComponent implements OnInit {
   deviceNameEditDone() {
     this.isEditName = false;
     this.store.dispatch(new UpdateDevice(this.deviceDate));
+  }
 
-
+  deviceDeleteClicked(){
+    this.showToolbar = false;
+    this.deviceDeleted.emit(this.device);
   }
 }

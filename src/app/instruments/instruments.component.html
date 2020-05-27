@@ -1,5 +1,5 @@
 <main role="main" class="bg-light">
-  <div class="container-fluid p-5" style="height: 100%;">
+  <div class="container-fluid p-5" style="height: 100vh;">
     <div class="device-header my-4">
       <h2>Favorite</h2>
     </div>
@@ -18,16 +18,11 @@
       <h2>{{ filterApllied ? 'Filtered By' : 'All'}}</h2>
 
       <hr />
-
-      <!-- <div class="device-action">
-        <input type="text" placeholder="Search by Seriel Number name or status" #searchTerm>
-        <span><button class="btn-sm btn-primry" (click) ="searchDevice(searchTerm.value)">search</button></span>
-      </div> -->
       <div class="device-actions mr-3">
 
         <div ngbDropdown placement="bottom-right" class="d-inline-block" #filterDrop="ngbDropdown">
           <!-- <i id="dropdownBasic1" class="material-icons" ngbDropdownToggle>sort</i> -->
-          <img src="../../assets/svg/filter.svg" alt="">
+          <img ngbDropdownToggle src="../../assets/svg/filter.svg" alt="">
           <span>filter</span>
           <!-- <fa-icon id="dropdownBasic1" [icon]="filterIcon" size="lg" ngbDropdownToggle></fa-icon> -->
           <!-- <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle></button> -->
@@ -35,7 +30,7 @@
             <div class="">
               <div class="container py-4">
                 <div class="col-12">
-                  <p>Filter By -</p>
+                  <h2>Filter By -</h2>
                   <p>Instrument Type</p>
                   <div class="row">
                     <button type="button" class="btn btn-outline-secondary filter-badge m-3"
@@ -48,8 +43,8 @@
                       [ngClass]="{'isActive': checkFilter('lorem2')}" (click)="applyFilter('lorem2')">lorem2</button>
                   </div>
                   <div class="row justify-content-end">
-                    <button type="button" class="btn btn-secondary mr-2" (click)="filterRemoved()">Clear filter</button>
-                    <button type="button" class="btn btn-danger" (click)="filterDrop.close()">Apply</button>
+                    <button type="button" class="btn clear-btn mr-2" (click)="filterRemoved()">Clear filter</button>
+                    <button type="button" class="btn apply-btn" (click)="filterDrop.close()">Apply</button>
                   </div>
                 </div>
               </div>
@@ -61,7 +56,7 @@
       </div>
       <div class="device-actions">
         <div ngbDropdown placement="bottom-right" class="d-inline-block">
-          <img src="../../assets/svg/sort.svg" alt="" srcset="">
+          <img ngbDropdownToggle src="../../assets/svg/sort.svg" alt="" srcset="">
           <span>sort</span>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic2" placement="bottom-left">
             <button ngbDropdownItem (click)="sortDevices(0)">A-Z</button>
@@ -78,9 +73,16 @@
     </div>
     <div class="row">
 
-      <div class="col-md-4 my-4 device-card" *ngFor="let item of deviceList" [ngClass]="{'d-none': checkToHideInInAll(item)}">
-        <app-device-details  (favoriteDeviceclicked)="addToFavorite($event)" [device]="item"></app-device-details>
+      <div class="col-md-4 my-4 device-card" *ngFor="let item of deviceList;let i=index" [ngClass]="{'d-none': checkToHideInInAll(item)}">
+        <app-device-details (deviceDeleted)="deviceDeleted($event)" (favoriteDeviceclicked)="addToFavorite($event)" [index]="i" [device]="item"></app-device-details>
       </div>
     </div>
   </div>
 </main>
+
+<div class="popup" *ngIf="showPopup" >
+  <app-manage-user *ngIf="showManageUser" [device]="activeDevice" (onClose)="hidePopup($event)"></app-manage-user>
+  <app-disconnect-admin *ngIf="showadminDelete" [device]="activeDevice" (onClose)="hidePopup($event)"> </app-disconnect-admin>
+  <app-disconnect-user *ngIf="showUserDelete" [device]="activeDevice" (onClose)="hidePopup($event)" ></app-disconnect-user>
+</div>
+

@@ -1,0 +1,73 @@
+.alert-body{
+  width: 816px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  padding: 0 0 2.1rem 0;
+}
+
+.title{
+  width: 100%;
+  font-family: HelveticaNeueLTStd-65;
+  font-size: 22px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #302550;
+  padding: 1rem;
+}
+.card-header{
+  font-family: HelveticaNeueLTStd-55Roman;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 0;
+  padding: 1rem;
+
+
+}
+.card-content {
+  min-height: 200px;
+  overflow-y: auto;
+  margin: 2rem;
+
+}
+.card-shadow{
+  margin: 2rem;
+}
+button{
+  width: 153px;
+  height: 47px;
+  font-family:HelveticaNeueLTStd-55Roman;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+.mt-2{
+  margin-top: 2rem;
+}
+.notice{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+.text-padding{
+  padding-left: 35px;
+}

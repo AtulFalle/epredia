@@ -51,3 +51,66 @@
   justify-content: center;
   align-items: center;
 }
+
+.filter h2{
+  font-family: HelveticaNeueLTStd-55Roman;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+.filter p {
+  font-family: HelveticaNeue;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #302550;
+}
+
+.filter-badge {
+  font-family: HelveticaNeueLTStd-55Roman;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  border-radius: 2rem;
+}
+.apply-btn {
+  width: 118px;
+  height: 29px;
+  border-radius: 6px;
+  border: solid 1px #ec008c;
+  background-color: #ec008c;
+  font-family: HelveticaNeueLTStd-55Roman;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.clear-btn{
+  width: 118px;
+  height: 29px;
+  border-radius: 6px;
+  border: solid 1px grey;
+  background-color: grey;
+  font-family: HelveticaNeueLTStd-55Roman;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}

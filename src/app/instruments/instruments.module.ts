@@ -17,9 +17,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import { ManageUserComponent } from './shared/popups/manage-user/manage-user.component';
 
 @NgModule({
-  declarations: [InstrumentsComponent, DeviceDetailsComponent, DisconnectUserComponent, DisconnectAdminComponent],
+  declarations: [InstrumentsComponent, DeviceDetailsComponent, DisconnectUserComponent, DisconnectAdminComponent, ManageUserComponent],
   imports: [
     CommonModule,
     InstrumentsRoutingModule,

@@ -14,9 +14,10 @@ import { faSortAmountUp, faSortAlphaUpAlt } from '@fortawesome/free-solid-svg-ic
   styleUrls: ['./instruments.component.scss']
 })
 export class InstrumentsComponent implements OnInit, OnDestroy {
-
+  showPopup = false;
   filterIcon = faSortAmountUp;
   sorticon = faSortAlphaUpAlt;
+  activeDevice: Device;
 
   filterApllied = false;
   activeFilter = [];
@@ -25,6 +26,9 @@ export class InstrumentsComponent implements OnInit, OnDestroy {
   favList: Device[] = [];
   deviceList: Device[] = [];
   subscription$: Subscription;
+  showManageUser: boolean;
+  showadminDelete: boolean;
+  showUserDelete: boolean;
   constructor(private store: Store<State>) { }
 
 
@@ -101,15 +105,34 @@ export class InstrumentsComponent implements OnInit, OnDestroy {
     // }
   }
 
-  checkToHideInInAll( device: Device) :boolean {
+  checkToHideInInAll(device: Device): boolean {
 
-    return this.favList.includes(device) || ( !this.activeFilter.includes(device.type) && this.activeFilter.length > 0 );
+    return this.favList.includes(device) || (!this.activeFilter.includes(device.type) && this.activeFilter.length > 0);
   }
 
   searchDevice(val: string) {
 
-console.log(val);
+    console.log(val);
 
+  }
+  hidePopup(ev: any) {
+    this.showPopup = false;
+  }
+
+  deviceDeleted(device: Device) {
+    this.activeDevice = device;
+    this.showPopup = true;
+    this.showManageUser = false;
+    this.showadminDelete = false;
+    this.showUserDelete = false;
+    if (device.deviceName == 'TissueProcessor A') {
+      this.showManageUser = true;
+
+    } else if (device.deviceName == 'TissueProcessor B') {
+      this.showadminDelete = true;
+    } else {
+      this.showUserDelete = true;
+    }
   }
 
 

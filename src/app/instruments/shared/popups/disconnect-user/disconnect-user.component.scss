@@ -1,3 +1,22 @@
+.title{
+  font-family: HelveticaNeueLTStd-65;
+  font-size: 22px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #302550;
+}
+.pl-3{
+  padding-left: 3rem;
+}
+.action-btn{
+  justify-content: end;;
+}
+.btn-cancle{
+  margin-right: 10px;
+}
 
 .btn-confirm, .btn-confirm:active ,.btn-confirm:hover{
   width: 166px;
@@ -25,4 +44,15 @@ mat-dialog-content{
 p{
   font-size: 18px;
   font-weight: normal;
+}
+.user-dialog{
+  background-color: white;
+  width: 550px;
+  padding: 2rem;
+}
+.content{
+  margin-top:1rem;
+}
+.mt-2{
+  margin-top: 2rem !important;
 }

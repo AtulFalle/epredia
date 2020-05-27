@@ -1,0 +1,43 @@
+<div class="alert-body">
+
+  <div class="title">
+    Manage users/admins for {{device.deviceName}}
+  </div>
+  <hr />
+  <div class="card-shadow row text-center">
+    <div class="col-4">
+      <p class=" card-header">USER</p>
+    </div>
+    <div class="col-4">
+      <p class=" card-header">ADMIN</p>
+    </div>
+    <div class="col-4">
+      <p class=" card-header">REMOVE USER</p>
+    </div>
+
+  </div>
+  <div class="card-content row text-center">
+    <div class="col-4">
+      <p class="m-0">harry_phillip@gmail.com</p>
+    </div>
+    <div class="col-4">
+      <div class="row justify-center">
+        <input type="checkbox" name="isadmin" id="admin">
+
+      </div>
+    </div>
+    <div class="col-4">
+      <fa-icon [icon]="faDelete" class="text-center"></fa-icon>
+    </div>
+  </div>
+  <hr/>
+  <div class="row mt-2">
+    <div class="col-9 text-padding">
+<p class="m-0 notice">1. Go to the instrument, to add a user</p>
+<p class="m-0 notice" >2. One admin per instrument is mandatory, so they can remove the users when necessary</p>
+    </div>
+    <div class="col-3">
+      <button class="primary" (click)="closeDialog()">CLOSE</button>
+    </div>
+  </div>
+</div>

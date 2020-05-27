@@ -1,9 +1,41 @@
 <div class="admin-dialog">
 
+<div class="row">
+  <div class="col-12">
+    <h2 class="title">Disconnect or remove {{device.deviceName}}</h2>
+    <!-- <h2 class="title">Disconnect or remove </h2> -->
 
-<h2 mat-dialog-title class="">Disconnect or remove {{data.deviceName}}</h2>
+  </div>
+</div>
 <mat-icon class="close-icon" (click)="closeDialog()" aria-hidden="false" aria-label="Example home icon">close</mat-icon>
-<mat-dialog-content class="mat-typography">
+<hr/>
+<div class="col-12">
+  <div class="row pl-3">
+    <input type="radio" name="disconnect" id="radio1">
+    <label for="radio1" class="pl-3">
+      <span class="option-header">Disconnect an instrument</span><br />
+      <span class="option-content">Once an instrument is disconnected, every user will be removed and it will no
+        longer be
+      </span><br />
+      <span class="option-content">
+        available. You cannot undo this action.</span>
+    </label>
+  </div>
+  <hr/>
+  <div class="row pl-3">
+    <input type="radio" name="disconnect" id="radio2">
+    <label for="radio2" class="pl-3">
+      <span class="option-header">Remove myself from the instrument</span><br />
+        <span class="option-content">Please give admin previleges to another user, before removing yourself from an
+          instrument.</span>
+    </label>
+  </div>
+</div>
+<div class="col-12">
+  <p class="error pt-4 pl-5"> Error, Please try again! </p>
+
+</div>
+<!-- <mat-dialog-content class="mat-typography">
   <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="userSelection">
     <mat-radio-button class="example-radio-button pl-4 w-100" [value]="0">
       <div class="radio-label">
@@ -24,9 +56,15 @@
     </mat-radio-button>
   </mat-radio-group>
   <p class="error pt-4 pl-5"> Error, Please try again! </p>
-</mat-dialog-content>
-<mat-dialog-actions align="end" class="pt-5 mb-1">
-  <button mat-button class="btn-cancle" (click)="closeDialog()">CANCLE</button>
-  <button mat-button class="btn-confirm" (click)="closeDialog()">CONFIRM</button>
-</mat-dialog-actions>
+</mat-dialog-content> -->
+<div class="row">
+<div class="col-6"></div>
+<div class="col-6">
+
+  <div class="pt-5 mb-1 row action-btn">
+    <button mat-button class="btn-cancle" (click)="closeDialog()">CANCLE</button>
+    <button mat-button class="btn-confirm" (click)="closeDialog()">CONFIRM</button>
+  </div>
+</div>
+</div>
 </div>
