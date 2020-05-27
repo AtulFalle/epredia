@@ -32,7 +32,6 @@
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "@ngrx/effects": "^9.1.2",
     "@ngrx/store": "^9.1.2",
-    "bootstrap": "^4.5.0",
     "import-map-overrides": "^1.15.2",
     "material-design-icons": "^3.0.1",
     "rxjs": "~6.5.4",
