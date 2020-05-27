@@ -1,4 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./palette";
+@import "./variables";
+@import "./mixins";
+@import "./components";
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: HelveticaNeue;
+  src: local(HelveticaNeue-Bold),
+    url(/assets/HelveticaNeueLT/HLB.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: HelveticaNeueLTStd-45;
+  src: local(HelveticaNeueLTStd-45Light),
+    url(/assets/HelveticaNeueLT/HelveticaNeueLTStd-Lt.otf) format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: HelveticaNeueLTStd-55Roman;
+  src: local(HelveticaNeueLTStd-55Roman),
+    url(/assets/HelveticaNeueLT/Helvetica-Neue-LT-Std-55-Roman.ttf)
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: HelveticaNeueLTStd-65;
+  src: local(HelveticaNeueLTStd-65Medium),
+    url(/assets/HelveticaNeueLT/HelveticaNeueLTStd-Md.otf) format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
 
 html,
 body {
@@ -6,8 +50,35 @@ body {
 }
 
 body {
+  height: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "HelveticaNeueLTStd-55Roman", "Helvetica", "serif";
+  background-color: $light-grey;
+}
+
+// App Header
+.app-header {
+  @include header;
+  justify-content: flex-start;
+  .app-header-logo {
+    @include flexCenter;
+    background-image: url("/assets/svg/epredia-white-logo-topbar.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 15%;
+    height: 100%;
+  }
+  .app-name {
+    font-size: 22px;
+    padding-left: 15px;
+  }
+}
+
+.app-divider {
+  height: 55%;
+  border-right: 1px solid $brand-dark-grey;
+  padding-left: 15px;
 }
 
 .card {
@@ -20,8 +91,8 @@ body {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, .125);
-  border-radius: .25rem
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
 
 .w-100 {
@@ -35,7 +106,6 @@ body {
 .col-4 {
   display: flex;
   flex-direction: column;
-  ;
   flex: 0 0 33.333333%;
   max-width: 33.333333%;
 }
@@ -114,14 +184,12 @@ body {
 .col-8 {
   display: flex;
   flex-direction: column;
-  ;
   flex: 0 0 66.66666%;
   max-width: 66.66666%;
 }
 
 button.primary,
 button.primary:hover {
-
   border-radius: 5.3px;
   border: solid 1.3px #ec008c;
   background-color: #ec008c;
@@ -130,7 +198,6 @@ button.primary:hover {
 .col-9 {
   display: flex;
   flex-direction: column;
-  ;
   flex: 0 0 75%;
   max-width: 75%;
 }
@@ -138,10 +205,9 @@ button.primary:hover {
 .col-3 {
   display: flex;
   flex-direction: column;
-  ;
   flex: 0 0 25%;
   max-width: 25%;
 }
-.d-none{
+.d-none {
   display: none;
 }
