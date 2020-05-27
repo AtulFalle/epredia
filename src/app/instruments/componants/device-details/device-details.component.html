@@ -21,11 +21,14 @@
       </div>
     </div>
     <div class="card-content">
-      <div class="device-name" *ngIf="!isEditName" >{{ device.deviceName }}</div>
-      <div class="device-name" *ngIf="isEditName" > <input type="text" [(ngModel)]="deviceDate.deviceName"> <button (click)="deviceNameEditDone()">OK</button><button  (click)="deviceNameEditDone()">Close</button> </div>
-      <div class="device-app">{{ device.type }}</div>
-      <div class="device-info soft-version">{{ device.softwareVersion }}</div>
-      <div class="device-info">{{ device.firmwareVersion }}</div>
+      <p class="device-name" *ngIf="!isEditName" >{{ device.deviceName }}</p>
+      <div class="device-name" *ngIf="isEditName" > <input type="text" [(ngModel)]="deviceDate.deviceName"> <img src="../../../../assets/png/successfully deleted.png" (click)="deviceNameEditDone()" alt="" srcset="">
+        <!-- <button (click)="deviceNameEditDone()">OK</button><button  (click)="deviceNameEditDone()">Close</button> -->
+      <img style="width: 15px;" src="../../../../assets/png/cancel 1.png" (click)="deviceNameEditDone()" alt="" srcset="">
+      </div>
+      <p class="device-app">{{ device.type }}</p>
+      <p class="device-info soft-version">{{ device.softwareVersion }}</p>
+      <p class="device-info">{{ device.firmwareVersion }}</p>
     </div>
   </div>
   <div class="card-toolbox" [class.d-none]= "!showToolbar">
