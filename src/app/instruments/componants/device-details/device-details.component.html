@@ -18,7 +18,8 @@
       </div>
     </div>
     <div class="card-content">
-      <div class="device-name">{{ device.deviceName }}</div>
+      <div class="device-name" *ngIf="!isEditName" >{{ device.deviceName }}</div>
+      <div class="device-name" *ngIf="isEditName" > <input type="text" [(ngModel)]="deviceDate.deviceName"> <button (click)="deviceNameEditDone()">OK</button><button  (click)="deviceNameEditDone()">Close</button> </div>
       <div class="device-app">{{ device.type }}</div>
       <div class="device-info soft-version">{{ device.softwareVersion }}</div>
       <div class="device-info">{{ device.firmwareVersion }}</div>
@@ -26,7 +27,7 @@
   </div>
   <div class="card-toolbox" [class.d-none]= "!showToolbar">
     <div>
-      <fa-icon [icon]="faPen" size="sm"></fa-icon>
+      <fa-icon [icon]="faPen" size="sm" (click)="editDeviceName()"></fa-icon>
     </div>
     <!-- <div class="tools-divider"></div> -->
     <div>

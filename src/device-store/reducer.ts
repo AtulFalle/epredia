@@ -10,6 +10,20 @@ export function reducer(state: State = initialState, action: DeviceAction): Stat
     case DeviceActionType.getDevicesSuccess:
       return { ...state, deviceList: action.payload };
 
+    case DeviceActionType.updateDevice: {
+
+      const updateDevice = action.payload;
+      const deviceList = [...state.deviceList];
+      for (const device of deviceList) {
+        if (device._id == updateDevice._id) {
+          const index = deviceList.indexOf(device);
+          deviceList[index] = updateDevice;
+        }
+      }
+      return { ...state, deviceList: deviceList }
+
+    }
+
     default:
       return state;
   }

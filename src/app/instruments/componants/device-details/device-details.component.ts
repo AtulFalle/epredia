@@ -1,5 +1,6 @@
+import { Device } from './../../../../models/device.model';
+import { State } from './../../../../device-store/state';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Device } from 'src/models/device.model';
 import {
   faFileImage,
   faEllipsisV,
@@ -13,6 +14,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DisconnectAdminComponent } from '../../shared/popups/disconnect-admin/disconnect-admin.component';
 import { DisconnectUserComponent } from '../../shared/popups/disconnect-user/disconnect-user.component';
 import { SharedService } from '../../shared/service/shared.service';
+import { Store } from '@ngrx/store';
+import { UpdateDevice } from 'src/device-store/actions';
 
 @Component({
   selector: 'app-device-details',
@@ -21,6 +24,7 @@ import { SharedService } from '../../shared/service/shared.service';
 })
 export class DeviceDetailsComponent implements OnInit {
 
+  isEditName = false;  // flag to check if user is allowed/clicked to edit name or not
   @Input()
   isFav: boolean;
 
@@ -39,7 +43,8 @@ export class DeviceDetailsComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   showToolbar = false;
 
-  constructor(public dialog: MatDialog, private sharedService: SharedService) { }
+  deviceDate: Device;
+  constructor(public dialog: MatDialog, private sharedService: SharedService, private store: Store<State>) { }
 
   ngOnInit(): void {
   }
@@ -62,7 +67,8 @@ export class DeviceDetailsComponent implements OnInit {
 
   openUserDialog() {
     const diaRef = this.dialog.open(DisconnectUserComponent, {
-      data: this.device });
+      data: this.device
+    });
     diaRef.afterClosed().subscribe(res => {
       console.log(res);
 
@@ -72,5 +78,14 @@ export class DeviceDetailsComponent implements OnInit {
   addTofav() {
     this.favoriteDeviceclicked.emit(this.device);
   }
+  editDeviceName() {
+    this.deviceDate = {...this.device};
+    this.isEditName = true;
+  }
+  deviceNameEditDone() {
+    this.isEditName = false;
+    this.store.dispatch(new UpdateDevice(this.deviceDate));
 
+
+  }
 }
