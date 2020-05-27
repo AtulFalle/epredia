@@ -4,16 +4,19 @@
       <fa-icon [icon]="faStar" size="sm" class="fav-btn" (click)="addTofav()" [ngClass]="{'isfav': isFav}"></fa-icon>
     </div>
     <div (click)="showToolbar = !showToolbar">
-      <fa-icon [icon]="faEllipsisV" size="sm" ></fa-icon>
+      <img src="../../../../assets/svg/ellipses.svg" alt="" srcset="">
+      <!-- <fa-icon [icon]="faEllipsisV" size="sm" ></fa-icon> -->
     </div>
   </div>
   <div class="card-content-wrapper">
     <div class="card-media">
       <div class="card-favourite">
-        <fa-icon [icon]="faFileImage" size="3x"></fa-icon>
+        <img src="../../../../assets/instrument_card.png" alt="" srcset="">
+        <!-- <fa-icon [icon]="faFileImage" size="3x"></fa-icon> -->
       </div>
       <div class="card-device-status" [class.card-device-active]="device.status === 'Available'">
         <fa-icon [icon]="faCircle" size="xs"></fa-icon>
+        <!-- <img class="circle" src="../../../../assets/svg/circle.svg" alt=""> -->
         <span class="device-status"> {{ device.status }}</span>
       </div>
     </div>
@@ -27,6 +30,7 @@
   </div>
   <div class="card-toolbox" [class.d-none]= "!showToolbar">
     <div>
+      <!-- <i alt="" srcset=""> -->
       <fa-icon [icon]="faPen" size="sm" (click)="editDeviceName()"></fa-icon>
     </div>
     <!-- <div class="tools-divider"></div> -->

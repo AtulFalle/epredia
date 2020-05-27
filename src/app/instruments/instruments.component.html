@@ -27,7 +27,9 @@
 
         <div ngbDropdown placement="bottom-right" class="d-inline-block" #filterDrop="ngbDropdown">
           <!-- <i id="dropdownBasic1" class="material-icons" ngbDropdownToggle>sort</i> -->
-          <fa-icon id="dropdownBasic1" [icon]="filterIcon" size="lg" ngbDropdownToggle></fa-icon>
+          <img src="../../assets/svg/filter.svg" alt="">
+          <span>filter</span>
+          <!-- <fa-icon id="dropdownBasic1" [icon]="filterIcon" size="lg" ngbDropdownToggle></fa-icon> -->
           <!-- <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle></button> -->
           <div ngbDropdownMenu class="dropdown-menu filter" aria-labelledby="dropdownBasic1" placement="bottom-left">
             <div class="">
@@ -59,11 +61,8 @@
       </div>
       <div class="device-actions">
         <div ngbDropdown placement="bottom-right" class="d-inline-block">
-          <fa-icon id="dropdownBasic2" [icon]="sorticon" size="lg" ngbDropdownToggle></fa-icon>
-
-          <!-- <i ngbDropdownToggle id="dropdownBasic2" class="material-icons">swap_vert</i>
-          <span>Sort</span> -->
-          <!-- <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle></button> -->
+          <img src="../../assets/svg/sort.svg" alt="" srcset="">
+          <span>sort</span>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownBasic2" placement="bottom-left">
             <button ngbDropdownItem (click)="sortDevices(0)">A-Z</button>
             <button ngbDropdownItem (click)="sortDevices(1)">Z-A</button>
