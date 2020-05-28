@@ -13,6 +13,17 @@
 }
 
 @mixin header {
+  font-family: HelveticaNeue;
+  font-size: 1.2rem;
   font-weight: bold;
-  width: 100%;  
+  width: 100%;
+  margin: 6vh 0;
+}
+
+@mixin headerFont {
+  font: {
+    family: HelveticaNeue;
+    size: 1rem;
+    weight: bold;
+  }
 }

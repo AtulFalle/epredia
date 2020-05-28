@@ -13,7 +13,7 @@ export class InstrumentsService {
 
   getInstruments(): Observable<any> {
     const instrumentsUrl =
-      'https://eprediacosmosdbapi.azurewebsites.net/api/getUserDeviceDetails';
+      'http://localhost:3000/api/getUserDeviceDetails';
     return this.http
       .get<any>(instrumentsUrl, {
         headers: new HttpHeaders()

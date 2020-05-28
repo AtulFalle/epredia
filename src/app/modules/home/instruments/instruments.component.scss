@@ -3,43 +3,57 @@
 
 .app-container {
   @include container;
-  padding-top: 5vh;
   justify-content: flex-start;
   .app-header {
     @include header;
+    margin-bottom: 2.5vh;
   }
   .favorites-card-space {
     @include flexCenter;
     height: 140px;
     border: 1px solid $brand-blue;
     background-color: rgba(48, 37, 80, 0.1);
-    width: calc(90% + 35px);
+    width: 84vw;
     font-style: italic;
     color: $brand-blue;
+    font-family: HelveticaNeueLTStd-55Roman;
+    font-size: 0.8rem;
   }
   .app-instruments-list {
     @include flexCenter;
-    width: 100%;
-    padding-top: 5vh;
+    justify-content: space-between;
     flex-wrap: nowrap;
+    width: 100%;
+    margin: 6vh 0;
     .app-header {
-      width: 5%;
+      margin: 0 25px 0 0;
+      width: initial;
     }
-    .filter-icons {
-      text-align: center;
-      width: 5%;
-      .active-menu {
-        color: $brand-pink;
+    .app-filters {
+      @include flexCenter;
+      width: 120px;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      .filter-icons {
+        text-align: center;
+        color: $brand-dark-grey;
+        span {
+          font-family: HelveticaNeueLTStd-65;
+          font-size: 0.7rem;
+        }
+        .active-menu {
+          color: $brand-pink;
+        }
       }
     }
     .vertical-divider {
-      height: 35px;
-      border-right: 1px solid $brand-grey;
+      border-top-color: $brand-dark-grey !important;
+      height: 40px;
+      width: initial !important;
     }
     .mat-divider {
-      width: 85%;
+      width: 100%;
       border-top-color: $brand-grey;
-      padding-bottom: 15px;
     }
   }
   .filters-wrapper {

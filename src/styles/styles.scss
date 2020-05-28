@@ -2,10 +2,10 @@
 @import "./palette";
 @import "./variables";
 @import "./mixins";
+@import "./fonts";
 
-// Describe the font you want to use and pass the variable in mat-core($custom-typography)
 $custom-typography: mat-typography-config(
-  $font-family: "Helvetica",
+  $font-family: '"HelveticaNeueLTStd-55Roman"',
 );
 
 @include mat-core($custom-typography);
@@ -21,6 +21,10 @@ $epredia-container-theme: mat-light-theme(
 
 @include angular-material-theme($epredia-container-theme);
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
 }
@@ -28,7 +32,7 @@ html {
 body {
   height: 100%;
   margin: 0;
-  font-family: "Helvetica";
+  font-family: "HelveticaNeueLTStd-55Roman";
   background-color: $light-grey;
 }
 
@@ -50,11 +54,24 @@ body {
 .mat-menu-panel {
   border-radius: 10px !important;
   max-width: 100% !important;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16) !important;
 }
 
-// Standar Chip 
+// Standar Chip
 .mat-chip.mat-standard-chip {
   background-color: $white;
   color: $brand-blue;
   border: 1px solid $brand-blue;
+}
+
+// Tabs
+.mat-tab-label {
+  min-width: 0 !important;
+  padding: 0 !important;
+  margin-right: 30px;
+}
+
+.mat-ink-bar {
+  height: 4px !important;
+  border-radius: 12px !important;
 }
