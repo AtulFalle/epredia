@@ -17,11 +17,13 @@ import {
 })
 export class InstrumentsComponent implements OnInit {
   sortOrders: string[] = ['Name A-Z', 'Name Z-A', 'Status'];
-  filters: string[] = [];
   focusedMenu = { sort: false, filter: false };
   instruments$: Observable<IInstrument[]>;
   isLoading$: Observable<boolean>;
-  instrumentsSerialNum$: Observable<string[]>;
+  instrumentsSerialNum$: Observable<{
+    serialNum: string;
+    selected: boolean;
+  }[]>;
   instrumentsFilters$: Observable<string[]>;
 
   constructor(
@@ -38,7 +40,7 @@ export class InstrumentsComponent implements OnInit {
       InstrumentsSelectors.selectFilteredInstrumentsList
     );
     this.instrumentsSerialNum$ = this.store$.select(
-      InstrumentsSelectors.selectInstrumentsSerialNum
+      InstrumentsSelectors.selectAllInstrumentsFilters
     );
     this.instrumentsFilters$ = this.store$.select(
       InstrumentsSelectors.instrumentsFilters
@@ -65,31 +67,21 @@ export class InstrumentsComponent implements OnInit {
   }
 
   closeFiltersFocus(element) {
-    console.log(element);
     this.focusedMenu[element] = false;
   }
-  
+
   openFiltersFocus(element) {
-    console.log(element);
     this.focusedMenu[element] = true;
   }
 
-  toggleFilter(filter: string) {
-    if (this.filters.includes(filter)) {
-      this.filters = this.filters.filter((el) => {
-        if (el === filter) {
-          return false;
-        } else {
-          return true;
-        }
-      });
-    } else {
-      this.filters = [...this.filters, filter];
-    }
+  toggleFilter(proposedFilter: string) {
+    this.store$.dispatch(
+      InstrumentsActions.proposedInstrumentsFilter({ proposedFilter })
+    );
   }
 
   applyFilters() {
-    this.store$.dispatch(InstrumentsActions.applyInstrumentsFilter({ filters: this.filters }));
+    this.store$.dispatch(InstrumentsActions.applyInstrumentsFilter());
   }
 
   removeFilter(filter) {

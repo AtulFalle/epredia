@@ -6,18 +6,27 @@ import { IInstrument } from '../../core/models';
 const selectInstruments = (state: State) => state.instruments.instruments;
 const selectSortOrder = (state: State) => state.instruments.sortOrder;
 const selectFilters = (state: State) => state.instruments.filters;
+const selectProposedFilters = (state: State) =>
+  state.instruments.proposedFilters;
 
 export const instrumentsFilters = createSelector(selectFilters, (filters) => {
   return filters;
 });
 
-export const selectInstrumentsSerialNum = createSelector(
+export const selectAllInstrumentsFilters = createSelector(
   selectInstruments,
-  (state: IInstrument[]) => {
-    const instrumentsSerialNum = state.map(
+  selectProposedFilters,
+  (instruments: IInstrument[], proposedFilters: string[]) => {
+    const instrumentsSerialNum = instruments.map(
       (instrument) => instrument.serialNumber
     );
-    return Array.from(new Set(instrumentsSerialNum));
+    const uniqueInstrumentsSerialNum = Array.from(
+      new Set(instrumentsSerialNum)
+    );
+    return uniqueInstrumentsSerialNum.map((serialNum) => ({
+      serialNum,
+      selected: proposedFilters.includes(serialNum),
+    }));
   }
 );
 

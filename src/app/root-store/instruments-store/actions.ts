@@ -6,6 +6,7 @@ export enum InstrumentsActionTypes {
   GetInstrumentsSuccess = '[Instrument] Get Instruments Successfully',
   SortInstruments = '[Instrument] Sort Instruments',
   InstrumentsFilter = '[Instruments] Instruments Filter',
+  ProposedInstrumentsFilter = '[Instruments] Proposed Instrument Filters',
 }
 
 export const getInstruments = createAction(
@@ -24,5 +25,9 @@ export const sortInstruments = createAction(
 
 export const applyInstrumentsFilter = createAction(
   InstrumentsActionTypes.InstrumentsFilter,
-  props<{ filters: string[] }>()
+);
+
+export const proposedInstrumentsFilter = createAction(
+  InstrumentsActionTypes.ProposedInstrumentsFilter,
+  props<{ proposedFilter: string }>()
 );

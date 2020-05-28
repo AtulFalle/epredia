@@ -24,12 +24,29 @@ const reducer = createReducer(
       sortOrder,
     };
   }),
-  on(instrumentsActions.applyInstrumentsFilter, (state, { filters }) => {
+  on(instrumentsActions.applyInstrumentsFilter, (state) => {
     return {
       ...state,
-      filters,
+      filters: [...state.proposedFilters],
     };
-  })
+  }),
+  on(
+    instrumentsActions.proposedInstrumentsFilter,
+    (state, { proposedFilter }) => {
+      let proposedFilters: string[];
+      if (state.proposedFilters.includes(proposedFilter)) {
+        proposedFilters = state.proposedFilters.filter(
+          (filter) => filter !== proposedFilter
+        );
+      } else {
+        proposedFilters = [...state.proposedFilters, proposedFilter];
+      }
+      return {
+        ...state,
+        proposedFilters,
+      };
+    }
+  )
 );
 
 export function instrumentsReducers(

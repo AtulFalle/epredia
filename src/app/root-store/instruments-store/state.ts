@@ -7,6 +7,7 @@ export interface IInstrumentsState {
   instruments: IInstrument[];
   sortOrder: string;
   filters: string[];
+  proposedFilters: string[];
 }
 
 export const initialInstrumentState: IInstrumentsState = {
@@ -16,4 +17,5 @@ export const initialInstrumentState: IInstrumentsState = {
   instruments: [],
   sortOrder: 'Name A-Z',
   filters: [],
+  proposedFilters: [],
 };

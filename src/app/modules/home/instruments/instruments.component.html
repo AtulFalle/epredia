@@ -46,11 +46,11 @@
           <mat-chip-list>
             <mat-chip
               *ngFor="let instrumentSerialNum of instrumentsSerialNum$ | async"
-              (click)="toggleFilter(instrumentSerialNum)"
+              (click)="toggleFilter(instrumentSerialNum.serialNum)"
               color="accent"
-              [selected]="filters.includes(instrumentSerialNum)"
+              [selected]="instrumentSerialNum.selected"
             >
-              {{ instrumentSerialNum }}
+              {{ instrumentSerialNum.serialNum }}
             </mat-chip>
           </mat-chip-list>
         </div>

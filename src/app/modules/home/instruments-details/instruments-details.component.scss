@@ -1,7 +1,7 @@
 @import "mixins";
 
 .instrument-details-card {
-  height: 140px;
+  height: 180px;
   .instrument-details-header {
     @include flexCenter;
     justify-content: flex-end;
