@@ -4,21 +4,7 @@
 .app-container {
   @include container;
   justify-content: flex-start;
-  .app-header {
-    @include header;
-    margin-bottom: 2.5vh;
-  }
-  .favorites-card-space {
-    @include flexCenter;
-    height: 140px;
-    border: 1px solid $brand-blue;
-    background-color: rgba(48, 37, 80, 0.1);
-    width: 84vw;
-    font-style: italic;
-    color: $brand-blue;
-    font-family: HelveticaNeueLTStd-55Roman;
-    font-size: 0.8rem;
-  }
+  
   .app-instruments-list {
     @include flexCenter;
     justify-content: space-between;
@@ -26,6 +12,7 @@
     width: 100%;
     margin: 6vh 0;
     .app-header {
+      @include header;
       margin: 0 25px 0 0;
       width: initial;
     }
@@ -67,11 +54,11 @@
   }
   .instruments-cards-wrapper {
     @include flexCenter;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
     .instrument-card {
       width: 30%;
-      margin: 35px 35px 0 0;
+      margin: 0 0 35px 0;
     }
   }
 }

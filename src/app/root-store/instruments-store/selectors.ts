@@ -13,6 +13,18 @@ export const instrumentsFilters = createSelector(selectFilters, (filters) => {
   return filters;
 });
 
+export const selectFavoriteInstruments = createSelector(
+  selectInstruments,
+  (instruments): IInstrument[] => {
+    return instruments.filter((instrument) => {
+      if (instrument.favorite) {
+        return true;
+      }
+      return false;
+    });
+  }
+);
+
 export const selectAllInstrumentsFilters = createSelector(
   selectInstruments,
   selectProposedFilters,

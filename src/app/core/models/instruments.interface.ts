@@ -6,4 +6,5 @@ export interface IInstrument {
   softwareVersion: string;
   status: string;
   type?: string;
+  favorite?: boolean;
 }

@@ -1,0 +1,27 @@
+@import "variables";
+@import "mixins";
+
+.app-header {
+  @include header;
+  margin-bottom: 2.5vh;
+}
+.favorites-card-space {
+  @include flexCenter;
+  height: 140px;
+  border: 1px solid $brand-blue;
+  background-color: rgba(48, 37, 80, 0.1);
+  width: 84vw;
+  font-style: italic;
+  color: $brand-blue;
+  font-family: HelveticaNeueLTStd-55Roman;
+  font-size: 0.8rem;
+}
+.instruments-cards-wrapper {
+  @include flexCenter;
+  justify-content: space-between;
+  width: 100%;
+  .instrument-card {
+    width: 30%;
+    margin: 0 0 35px 0;
+  }
+}

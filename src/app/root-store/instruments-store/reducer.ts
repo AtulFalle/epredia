@@ -46,6 +46,31 @@ const reducer = createReducer(
         proposedFilters,
       };
     }
+  ),
+  on(
+    instrumentsActions.toggleFavoriteInstrument,
+    (state, { favoriteId, isFavorite }) => {
+      if (!isFavorite) {
+        let countFavorites: number = 0;
+        state.instruments.forEach((instrument) => {
+          if (instrument.favorite) {
+            countFavorites += 1;
+          }
+        });
+        if (countFavorites === 3) {
+          return { ...state };
+        }
+      }
+      return {
+        ...state,
+        instruments: state.instruments.map((instrument) => {
+          if (instrument._id === favoriteId) {
+            return { ...instrument, favorite: !instrument.favorite };
+          }
+          return instrument;
+        }),
+      };
+    }
   )
 );
 
@@ -58,7 +83,7 @@ export function instrumentsReducers(
 
 const dummyDevices = [
   {
-    _id: 'revos-asia-device777',
+    _id: 'revos-asia-device1',
     serialNumber: 'RS0000000777',
     deviceName: 'Cryostar NX70',
     softwareVersion: '1.1.1-FPGA',
@@ -66,7 +91,7 @@ const dummyDevices = [
     status: 'Available',
   },
   {
-    _id: 'revos-asia-device777',
+    _id: 'revos-asia-device2',
     serialNumber: 'RS0000000777',
     deviceName: 'Cryostar NX69',
     softwareVersion: '1.1.1-FPGA',
@@ -74,7 +99,7 @@ const dummyDevices = [
     status: 'Available',
   },
   {
-    _id: 'revos-asia-device777',
+    _id: 'revos-asia-device3',
     serialNumber: 'RS0000000777',
     deviceName: 'HM355S F',
     softwareVersion: '1.1.1-FPGA',
@@ -82,7 +107,7 @@ const dummyDevices = [
     status: 'Available',
   },
   {
-    _id: 'revos-asia-device777',
+    _id: 'revos-asia-device4',
     serialNumber: 'RS0000000777',
     deviceName: 'HM355 G',
     softwareVersion: '1.1.1-FPGA',
@@ -91,7 +116,7 @@ const dummyDevices = [
     instrument_type: 'HM355S',
   },
   {
-    _id: 'revos-asia-device777',
+    _id: 'revos-asia-device5',
     serialNumber: 'RS0000000777',
     deviceName: 'TissueProcessor H',
     softwareVersion: '1.1.1-FPGA',

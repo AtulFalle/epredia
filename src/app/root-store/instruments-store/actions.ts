@@ -7,6 +7,7 @@ export enum InstrumentsActionTypes {
   SortInstruments = '[Instrument] Sort Instruments',
   InstrumentsFilter = '[Instruments] Instruments Filter',
   ProposedInstrumentsFilter = '[Instruments] Proposed Instrument Filters',
+  ToggleFavoriteInstrument = '[Instruments] Favorite Instrument',
 }
 
 export const getInstruments = createAction(
@@ -30,4 +31,9 @@ export const applyInstrumentsFilter = createAction(
 export const proposedInstrumentsFilter = createAction(
   InstrumentsActionTypes.ProposedInstrumentsFilter,
   props<{ proposedFilter: string }>()
+);
+
+export const toggleFavoriteInstrument = createAction(
+  InstrumentsActionTypes.ToggleFavoriteInstrument,
+  props<{ favoriteId: string, isFavorite: boolean }>()
 );

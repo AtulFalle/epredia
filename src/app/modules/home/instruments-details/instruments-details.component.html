@@ -1,6 +1,11 @@
 <mat-card class="instrument-details-card">
   <mat-card-header class="instrument-details-header">
-    <mat-icon class="instrument-details-icon" svgIcon="star"></mat-icon>
+    <mat-icon
+      class="instrument-details-icon"
+      [class.instrument-details-favorite]="instrument.favorite"
+      svgIcon="star"
+      (click)="addFavoriteInstrument(instrument._id, instrument.favorite)"
+    ></mat-icon>
     <mat-icon class="instrument-details-icon" svgIcon="ellipses"></mat-icon>
   </mat-card-header>
   <mat-card-content class="card-content-wrapper">

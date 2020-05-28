@@ -1,0 +1,16 @@
+<div>
+<div class="app-header">Favourites</div>
+<mat-card *ngIf="(favoriteInstruments$ | async).length < 1" class="favorites-card-space">
+  You can mark 3 instruments as favorites and monitor them
+</mat-card>
+<div *ngIf="(favoriteInstruments$ | async).length > 0" class="instruments-cards-wrapper">
+  <div
+    class="instrument-card"
+    *ngFor="let instrument of favoriteInstruments$ | async"
+  >
+    <app-instruments-details
+      [instrument]="instrument"
+    ></app-instruments-details>
+  </div>
+</div>
+</div>
